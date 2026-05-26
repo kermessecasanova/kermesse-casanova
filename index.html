@@ -1,0 +1,1826 @@
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kermesse 2026 — École D. Casanova Sartrouville</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" crossorigin="anonymous">
+<style>
+  :root {
+    --jaune:     #F5C842;
+    --abricot:   #E8916A;
+    --rose:      #E07A9A;
+    --turquoise: #5BB8B0;
+    --vert:      #72B583;
+    --lavande:   #8A7BB5;
+    --corail:    #D4706A;
+    --dark:      #2C2C3E;
+    --dark-soft: #4A4A5A;
+    --light:     #FAF7F2;
+    --white:     #FFFFFF;
+    --border:    #C8C0B8;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body { font-family:'Nunito',sans-serif; background:var(--light); color:var(--dark); overflow-x:hidden; }
+
+  /* Wrapper centré pour simuler le rendu mobile sur desktop */
+  .page-wrap {
+    max-width: 430px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  body::before {
+    content:''; position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 10% 15%, rgba(245,200,66,0.10) 0%, transparent 38%),
+      radial-gradient(circle at 88% 10%, rgba(232,145,106,0.08) 0%, transparent 32%),
+      radial-gradient(circle at 75% 85%, rgba(91,184,176,0.08) 0%, transparent 36%),
+      radial-gradient(circle at 15% 82%, rgba(138,123,181,0.08) 0%, transparent 32%);
+    pointer-events:none; z-index:0;
+  }
+
+  /* BUNTING */
+  .bunting { display:flex; justify-content:center; overflow:hidden; padding-top:18px; position:relative; z-index:2; }
+  .flag { width:50px; height:62px; clip-path:polygon(0 0,100% 0,100% 68%,50% 100%,0 68%); animation:swing 2.4s ease-in-out infinite alternate; flex-shrink:0; opacity:0.82; }
+  .flag:nth-child(1)  { background:var(--corail);    animation-delay:0s; }
+  .flag:nth-child(2)  { background:var(--jaune);     animation-delay:.13s; }
+  .flag:nth-child(3)  { background:var(--turquoise); animation-delay:.26s; }
+  .flag:nth-child(4)  { background:var(--vert);      animation-delay:.39s; }
+  .flag:nth-child(5)  { background:var(--rose);      animation-delay:.52s; }
+  .flag:nth-child(6)  { background:var(--abricot);   animation-delay:.65s; }
+  .flag:nth-child(7)  { background:var(--lavande);   animation-delay:.78s; }
+  .flag:nth-child(8)  { background:var(--corail);    animation-delay:.91s; }
+  .flag:nth-child(9)  { background:var(--jaune);     animation-delay:1.04s; }
+  .flag:nth-child(10) { background:var(--turquoise); animation-delay:1.17s; }
+  .flag:nth-child(11) { background:var(--vert);      animation-delay:1.30s; }
+  .flag:nth-child(12) { background:var(--rose);      animation-delay:1.43s; }
+  .flag:nth-child(13) { background:var(--abricot);   animation-delay:1.56s; }
+  .flag:nth-child(14) { background:var(--lavande);   animation-delay:1.69s; }
+  @keyframes swing { from{transform:rotate(-4deg) translateY(0)} to{transform:rotate(4deg) translateY(5px)} }
+
+  /* HERO */
+  .hero { position:relative; text-align:center; padding:34px 20px 30px; z-index:1; }
+  .hero-badge {
+    display:inline-block; background:transparent; color:var(--dark-soft);
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:0.8rem;
+    letter-spacing:2px; text-transform:uppercase; padding:7px 22px;
+    border-radius:30px; border:2px solid var(--border);
+    margin-bottom:16px;
+    animation:popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  @keyframes popIn { from{opacity:0;transform:scale(0.5) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  .hero h1 {
+    font-family:'Baloo 2',cursive; font-weight:900;
+    font-size:clamp(2.8rem,10vw,4rem); line-height:0.95; margin-bottom:12px;
+    filter:drop-shadow(3px 3px 0 rgba(0,0,0,0.08));
+    animation:slideUp 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+  }
+  @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .hero h1 .l1{color:var(--corail)}   .hero h1 .l2{color:var(--abricot)}
+  .hero h1 .l3{color:var(--jaune)}    .hero h1 .l4{color:var(--vert)}
+  .hero h1 .l5{color:var(--turquoise)} .hero h1 .l6{color:var(--lavande)}
+  .hero h1 .l7{color:var(--rose)}     .hero h1 .l8{color:var(--corail)}
+  .hero-school {
+    font-family:'Baloo 2',cursive; font-size:1.25rem; font-weight:800;
+    color:var(--dark); margin-bottom:22px; animation:slideUp 0.7s ease 0.2s both;
+    letter-spacing:0.5px; padding:0 10px;
+  }
+  .hero-info { display:flex; justify-content:center; margin-bottom:28px; margin-top:52px; animation:slideUp 0.7s ease 0.3s both; padding:0 20px; }
+
+  /* Ticket style C */
+  .info-ticket {
+    background: var(--white);
+    border: 2px dashed var(--border);
+    border-radius: 18px;
+    overflow: visible;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 4px 4px 0 var(--border);
+    position: relative;
+  }
+
+  .ticket-tampon {
+    position: absolute;
+    top: -12px;
+    left: -28px;
+    background: var(--turquoise);
+    color: var(--white);
+    font-family: 'Baloo 2', cursive;
+    font-weight: 900;
+    font-size: 0.82rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 4px;
+    border: 2px solid rgba(255,255,255,0.6);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.18);
+    transform: rotate(-35deg);
+    transform-origin: center center;
+    z-index: 2;
+  }
+
+  .ticket-rainbow {
+    height: 7px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--corail)    0  14.3%,
+      var(--jaune)     14.3%  28.6%,
+      var(--turquoise) 28.6%  42.9%,
+      var(--vert)      42.9%  57.2%,
+      var(--rose)      57.2%  71.5%,
+      var(--abricot)   71.5%  85.8%,
+      var(--lavande)   85.8%  100%
+    );
+  }
+
+  .ticket-body {
+    padding: 14px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ticket-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    gap: 16px;
+  }
+
+  .ticket-row:last-child { border-bottom: none; }
+
+  .ticket-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--dark-soft);
+    opacity: 0.65;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 90px;
+  }
+
+  .ticket-value {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--dark);
+    text-align: right;
+  }
+
+  /* ===== NAV : grands boutons rectangulaires empilés ===== */
+  .nav-tabs {
+    display:flex; flex-direction:column; align-items:center; gap:11px;
+    padding:0 24px 38px; position:relative; z-index:2;
+    max-width:480px; margin:0 auto;
+  }
+  .tab-btn {
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:1.05rem;
+    padding:15px 28px; border:2px solid var(--dark-soft); border-radius:16px;
+    cursor:pointer; transition:all 0.18s; box-shadow:4px 4px 0 var(--dark-soft);
+    background:var(--white); color:var(--dark);
+    width:100%; text-align:center; letter-spacing:0.3px;
+  }
+  .tab-btn:hover  { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark-soft); }
+  .tab-btn.active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--dark-soft); opacity:0.88; }
+  .tab-btn[data-tab="inscription"]  { background:var(--turquoise); color:var(--white);  border-color:#3D9990; box-shadow:4px 4px 0 #3D9990; }
+  .tab-btn[data-tab="billetterie"]  { background:var(--jaune); color:var(--dark); border-color:#D4A820; box-shadow:4px 4px 0 #D4A820; white-space:nowrap; }
+  .tab-btn[data-tab="gateau"]       { background:var(--rose);      color:var(--white);  border-color:#C05A7A; box-shadow:4px 4px 0 #C05A7A; }
+  .tab-btn[data-tab="contact"]      { background:var(--lavande);   color:var(--white);  border-color:#6A5B95; box-shadow:4px 4px 0 #6A5B95; }
+  .tab-btn[data-tab="inscription"]:hover { box-shadow:6px 6px 0 #3D9990; }
+  .tab-btn[data-tab="billetterie"]:hover { box-shadow:6px 6px 0 #D4A820; }
+  .tab-btn[data-tab="gateau"]:hover      { box-shadow:6px 6px 0 #C05A7A; }
+  .tab-btn[data-tab="inscription"].active { box-shadow:1px 1px 0 #3D9990; }
+  .tab-btn[data-tab="billetterie"].active { box-shadow:1px 1px 0 #D4A820; }
+  .tab-btn[data-tab="gateau"].active      { box-shadow:1px 1px 0 #C05A7A; }
+
+  /* SECTIONS */
+  .section { display:none; width:100%; margin:0 auto; padding:0 20px 70px; position:relative; z-index:1; }
+  .section.active { display:block; animation:fadeIn 0.35s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-title { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.85rem; margin-bottom:24px; display:flex; align-items:center; gap:12px; color:var(--dark); }
+
+  /* WELCOME */
+  .welcome-banner {
+    background:var(--white); border:2px solid var(--border); border-radius:24px;
+    padding:26px 28px; box-shadow:5px 5px 0 var(--border); margin-bottom:24px;
+    position:relative; overflow:hidden;
+    text-align:center;
+  }
+  .welcome-banner::before { content:'🎉'; position:absolute; font-size:8rem; right:-16px; top:-10px; opacity:0.06; pointer-events:none; }
+  .welcome-banner h2 { font-family:'Baloo 2',cursive; font-size:1.5rem; font-weight:800; margin-bottom:10px; color:var(--dark); }
+  .welcome-banner p  { font-size:0.97rem; line-height:1.78; color:var(--dark-soft); }
+
+  /* DETAIL CARDS */
+  .detail-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin:22px 0 28px; }
+  .detail-card {
+    background:var(--white); border:2px solid var(--border); border-radius:18px;
+    padding:18px 14px; box-shadow:3px 3px 0 var(--border); text-align:center;
+    transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .detail-card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--border)}
+  .detail-card .di{font-size:2.2rem;margin-bottom:8px}
+  .detail-card h4{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--dark-soft);opacity:0.6;margin-bottom:4px}
+  .detail-card p{font-weight:800;font-size:0.91rem;color:var(--dark)}
+  .detail-card:nth-child(1){border-top:6px solid var(--jaune)}
+  .detail-card:nth-child(2){border-top:6px solid var(--turquoise)}
+  .detail-card:nth-child(3){border-top:6px solid var(--vert)}
+  .detail-card:nth-child(4){border-top:6px solid var(--abricot)}
+
+  .programme-label { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.28rem; margin:4px 0 14px; color:var(--dark); }
+
+  /* STANDS */
+  .stands-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:13px; margin-bottom:24px; }
+  .stand-card {
+    background:var(--white); border:2px solid var(--border); border-radius:20px;
+    padding:20px 16px; box-shadow:4px 4px 0 var(--border); text-align:center;
+    transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .stand-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--border)}
+  .stand-card .si{font-size:2.6rem;margin-bottom:10px;display:block}
+  .stand-card h3{font-family:'Baloo 2',cursive;font-weight:700;font-size:1rem;margin-bottom:5px;color:var(--dark)}
+  .stand-card p{font-size:0.79rem;color:var(--dark-soft);line-height:1.5;opacity:0.85}
+  .stand-card.c-abricot  { border-top:7px solid var(--abricot) }
+  .stand-card.c-turquoise{ border-top:7px solid var(--turquoise) }
+  .stand-card.c-rose     { border-top:7px solid var(--rose) }
+  .stand-card.c-lavande  { border-top:7px solid var(--lavande) }
+
+  /* TIMELINE */
+  .timeline { background:var(--white); border:2px solid var(--border); border-radius:20px; padding:24px 28px; box-shadow:4px 4px 0 var(--border); margin-bottom:24px; }
+  .timeline h3{font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:800;margin-bottom:14px;color:var(--dark)}
+  .t-row{display:flex;gap:14px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--border)}
+  .t-row:last-child{border-bottom:none}
+  .t-icon{font-size:1.2rem;flex-shrink:0}
+  .t-time{font-family:'Baloo 2',cursive;font-weight:800;font-size:0.87rem;min-width:115px;color:var(--abricot)}
+  .t-event{font-size:0.9rem;font-weight:600;color:var(--dark-soft)}
+
+  /* BILLETTERIE */
+  .billet-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-bottom:28px; }
+  .billet-card {
+    background:var(--white); border:2px solid var(--border); border-radius:20px;
+    padding:26px 22px; box-shadow:4px 4px 0 var(--border);
+    transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .billet-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--border)}
+  .billet-card .bc-icon{font-size:2.8rem;margin-bottom:12px;display:block}
+  .billet-card h3{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.1rem;margin-bottom:8px;color:var(--dark)}
+  .billet-card .bc-price{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.5rem;color:var(--abricot);margin-bottom:6px}
+  .billet-card p{font-size:0.83rem;color:var(--dark-soft);line-height:1.55}
+  .billet-card.bc-repas   {border-top:7px solid var(--abricot)}
+  .billet-card.bc-boisson {border-top:7px solid var(--turquoise)}
+  .billet-card.bc-dessert {border-top:7px solid var(--rose)}
+  .billet-card.bc-jeux    {border-top:7px solid var(--vert)}
+  .billet-card.bc-loterie {border-top:7px solid var(--lavande)}
+  .billet-section-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.2rem;color:var(--dark);margin:24px 0 14px;display:flex;align-items:center;gap:10px}
+  .billet-note{background:var(--light);border:2px solid var(--border);border-radius:14px;padding:14px 18px;font-size:0.88rem;color:var(--dark-soft);line-height:1.6;margin-bottom:20px}
+
+  /* FORM */
+  .form-card { background:var(--white); border:2px solid var(--border); border-radius:24px; padding:32px 36px; box-shadow:5px 5px 0 var(--border); }
+  @media(max-width:560px){.form-card{padding:18px 14px}}
+  .form-group{margin-bottom:20px}
+  .form-group > label:first-child{display:block;font-weight:800;margin-bottom:8px;font-size:0.9rem;color:var(--dark)}
+  input[type="text"],input[type="email"],input[type="tel"],textarea {
+    width:100%;padding:11px 15px;border:2px solid var(--border);border-radius:12px;
+    font-family:'Nunito',sans-serif;font-size:0.94rem;background:var(--light);
+    outline:none;transition:border-color 0.18s,box-shadow 0.18s;color:var(--dark);
+  }
+  input:focus,textarea:focus{border-color:var(--turquoise);box-shadow:0 0 0 3px rgba(91,184,176,0.15)}
+  input.champ-erreur, textarea.champ-erreur { border-color:var(--corail) !important; box-shadow:0 0 0 3px rgba(212,112,106,0.18) !important; }
+  .msg-erreur { color:var(--corail); font-size:0.8rem; font-weight:700; margin-top:5px; display:none; }
+  .msg-erreur.show { display:block; }
+  .label-required::after { content:' *'; color:var(--corail); font-weight:900; }
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:520px){.row-2{grid-template-columns:1fr}}
+
+  /* Nb personnes */
+  .nb-persons-row{display:flex;gap:10px;margin-top:6px}
+  .nb-btn {
+    font-family:'Baloo 2',cursive;font-weight:800;font-size:1rem;
+    width:42px;height:42px;border:2px solid var(--border);border-radius:12px;
+    background:var(--white);cursor:pointer;transition:all 0.18s;color:var(--dark);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nb-btn:hover{border-color:var(--turquoise);background:#EAF6F5}
+  .nb-btn.selected{border-color:var(--vert);background:#EEF7F0;box-shadow:2px 2px 0 var(--vert)}
+
+  /* Stand opts */
+  .stands-selector{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;margin-top:6px}
+  .stand-opt input{display:none}
+  .stand-opt label{display:flex;align-items:center;gap:8px;padding:10px 13px;border:2px solid var(--border);border-radius:12px;cursor:pointer;font-weight:700;font-size:0.85rem;transition:all 0.18s;background:var(--white);margin:0;user-select:none;color:var(--dark)}
+  .stand-opt input:checked+label{border-color:var(--vert);background:#EEF7F0;box-shadow:2px 2px 0 var(--vert)}
+  .stand-opt label:hover{border-color:var(--turquoise)}
+
+  /* Créneaux */
+  .creneaux-grid{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .cren-opt input{display:none}
+  .cren-opt label{display:block;padding:8px 15px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-weight:800;font-size:0.83rem;transition:all 0.18s;background:var(--white);margin:0;user-select:none;white-space:nowrap;color:var(--dark);position:relative}
+  .cren-opt input:checked+label{border-color:var(--turquoise);background:#EAF6F5;box-shadow:2px 2px 0 var(--turquoise)}
+  .cren-opt label:hover{border-color:var(--turquoise)}
+  .cren-opt.full label{background:#F5EDEC;color:#aaa;border-color:#ddd;cursor:not-allowed;text-decoration:line-through}
+  .cren-opt.full label::after{content:' · complet';font-size:0.72rem;color:var(--corail)}
+  .cren-opt.one-left label::after{content:' · 1 place';font-size:0.72rem;color:var(--abricot)}
+
+  /* Capacity bar */
+  .capacity-bar{margin-top:5px}
+  .cap-track{background:#EEE;border-radius:30px;height:8px;overflow:hidden;margin-bottom:3px}
+  .cap-fill{height:100%;border-radius:30px;transition:width 0.4s;background:var(--vert)}
+  .cap-fill.half{background:var(--jaune)} .cap-fill.full{background:var(--corail)}
+  .cap-count{font-size:0.72rem;color:var(--dark-soft);opacity:0.75}
+
+  /* Gâteau toggle */
+  .gateau-toggle{display:flex;align-items:center;gap:12px;padding:13px 16px;border:2px solid var(--border);border-radius:14px;cursor:pointer;transition:all 0.2s;background:var(--white);margin:0;user-select:none}
+  .gateau-toggle:has(input:checked){border-color:var(--rose);background:#FBF0F4;box-shadow:2px 2px 0 var(--rose)}
+  .gateau-toggle input{width:19px;height:19px;cursor:pointer;accent-color:var(--rose)}
+  .gateau-toggle span{font-weight:800;font-size:0.94rem;color:var(--dark)}
+  .gateau-details{display:none;margin-top:14px;padding:18px;background:#FDF6F8;border:2px dashed var(--rose);border-radius:14px}
+  .gateau-details.show{display:block;animation:fadeIn 0.3s ease}
+
+  /* Submit */
+  .btn-submit{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.05rem;padding:14px 36px;background:var(--vert);color:var(--white);border:2px solid var(--dark-soft);border-radius:50px;cursor:pointer;box-shadow:4px 4px 0 var(--dark-soft);transition:all 0.18s;display:block;width:100%;margin-top:8px}
+  .btn-submit:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--dark-soft)}
+  .btn-submit:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--dark-soft)}
+
+  /* Success */
+  .success-msg{display:none;text-align:center;padding:46px 24px;background:var(--white);border:2px solid var(--border);border-radius:24px;box-shadow:5px 5px 0 var(--border)}
+  .success-msg .big-emoji{font-size:5rem;margin-bottom:14px}
+  .success-msg h2{font-family:'Baloo 2',cursive;font-size:1.9rem;font-weight:800;margin-bottom:10px;color:var(--dark)}
+  .success-msg p{font-size:0.97rem;color:var(--dark-soft);line-height:1.78}
+  .recap-box{background:var(--light);border:2px solid var(--border);border-radius:14px;padding:14px 18px;margin:16px 0;text-align:left;font-size:0.88rem;color:var(--dark-soft)}
+  .recap-box strong{color:var(--dark)}
+
+  /* PAGE GÂTEAU */
+  .gateau-page{background:var(--white);border:2px solid var(--border);border-radius:24px;padding:32px 36px;box-shadow:5px 5px 0 var(--border)}
+  @media(max-width:560px){.gateau-page{padding:18px 14px}}
+  .gateau-page>.intro-p{font-size:0.97rem;line-height:1.78;margin-bottom:22px;color:var(--dark-soft)}
+  .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:13px;margin-bottom:26px}
+  .tip-card{background:var(--light);border:2px solid var(--border);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;transition:transform 0.18s}
+  .tip-card:hover{transform:translate(-2px,-2px)}
+  .tip-card .ti{font-size:1.8rem;flex-shrink:0}
+  .tip-card h4{font-weight:800;margin-bottom:4px;font-size:0.9rem;color:var(--dark)}
+  .tip-card p{font-size:0.79rem;color:var(--dark-soft);line-height:1.5}
+
+  /* FOOTER */
+  footer{text-align:center;padding:26px 20px;font-size:0.82rem;color:var(--dark-soft);opacity:0.65;position:relative;z-index:1}
+  footer p+p{margin-top:5px}
+
+  /* BALLONS */
+  .balloon-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .balloon-wrap {
+    position: absolute;
+    bottom: -200px;
+    opacity: 0;
+    animation: riseUp ease-in forwards;
+    will-change: transform, opacity;
+  }
+
+  .balloon-wrap svg {
+    animation: sway ease-in-out infinite alternate;
+    will-change: transform;
+    filter: drop-shadow(2px 5px 8px rgba(0,0,0,0.18));
+  }
+
+  @keyframes riseUp {
+    0%   { opacity: 0;   transform: translateY(0); }
+    5%   { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { opacity: 0;   transform: translateY(-130vh); }
+  }
+
+  @keyframes sway {
+    from { transform: rotate(var(--sway-from)); }
+    to   { transform: rotate(var(--sway-to)); }
+  }
+</style>
+</head>
+<body>
+
+<!-- BALLONS SVG qui s'envolent -->
+<div class="balloon-container" id="balloonContainer"></div>
+
+
+<script>
+var spawnWave;
+document.addEventListener('DOMContentLoaded', function() {
+  // Couleurs exactes de la banderole
+  const COLORS = [
+    { fill:'#D4706A', shine:'#E8938E', knot:'#B85A54' },
+    { fill:'#F5C842', shine:'#FAD96A', knot:'#D4A820' },
+    { fill:'#5BB8B0', shine:'#7DCCC5', knot:'#3D9990' },
+    { fill:'#72B583', shine:'#90C99A', knot:'#549664' },
+    { fill:'#E07A9A', shine:'#ECA0B5', knot:'#C05A7A' },
+    { fill:'#E8916A', shine:'#F0AC8A', knot:'#C87050' },
+    { fill:'#8A7BB5', shine:'#A89CCB', knot:'#6A5B95' },
+  ];
+
+  function makeBalloonSVG(color, w, h) {
+    var bw = w, bh = Math.round(h * 0.78);
+    var cx = bw / 2, cy = bh / 2;
+    var rx = bw / 2, ry = bh / 2;
+    var stringH = Math.round(h * 0.28);
+    var totalH  = bh + stringH;
+    var svgW = bw, svgH = totalH + 10;
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + svgW + '" height="' + svgH + '" viewBox="0 0 ' + svgW + ' ' + svgH + '">'
+      + '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="' + color.fill + '"/>'
+      + '<ellipse cx="' + (cx - rx*0.3) + '" cy="' + (cy - ry*0.25) + '" rx="' + (rx*0.25) + '" ry="' + (ry*0.15) + '" fill="' + color.shine + '" opacity="0.7"/>'
+      + '<path d="M' + (cx-4) + ' ' + bh + ' Q' + cx + ' ' + (bh+8) + ' ' + (cx+4) + ' ' + bh + '" fill="' + color.knot + '"/>'
+      + '<line x1="' + cx + '" y1="' + (bh+8) + '" x2="' + (cx + (Math.random()>0.5?4:-4)) + '" y2="' + (bh+stringH) + '" stroke="#888" stroke-width="1.2" opacity="0.7"/>'
+      + '</svg>';
+  }
+
+  const container = document.getElementById('balloonContainer');
+  if (!container) return;
+
+  spawnWave = function(count, baseDelay) {
+    for (var i = 0; i < count; i++) {
+      var color    = COLORS[i % COLORS.length];
+      var scale    = 0.9 + Math.random() * 0.7;
+      var bw       = Math.round(44 * scale);
+      var bh       = Math.round(56 * scale);
+      var left     = 1 + Math.random() * 97;
+      var duration = 2.5 + Math.random() * 2;
+      var delay    = baseDelay + (i / count) * 0.4 + Math.random() * 0.15;
+      var swayFrom = (-8 - Math.random() * 6) + 'deg';
+      var swayTo   = (8  + Math.random() * 6) + 'deg';
+      var swayDur  = 1.2 + Math.random() * 1.0;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'balloon-wrap';
+      wrap.innerHTML = makeBalloonSVG(color, bw, bh);
+      wrap.style.left              = left + '%';
+      wrap.style.animationDuration = duration + 's';
+      wrap.style.animationDelay    = delay + 's';
+      wrap.style.setProperty('--sway-from', swayFrom);
+      wrap.style.setProperty('--sway-to',   swayTo);
+      var svg = wrap.querySelector('svg');
+      if (svg) svg.style.animationDuration = swayDur + 's';
+      container.appendChild(wrap);
+    }
+  };
+
+  spawnWave(28, 0);
+  setTimeout(function() { if (container) container.innerHTML = ''; }, 6000);
+});
+</script>
+
+<!-- WRAPPER centré -->
+<div class="page-wrap">
+
+<!-- BUNTING -->
+<div class="bunting">
+  <div class="flag"></div><div class="flag"></div><div class="flag"></div>
+  <div class="flag"></div><div class="flag"></div><div class="flag"></div>
+  <div class="flag"></div><div class="flag"></div><div class="flag"></div>
+  <div class="flag"></div><div class="flag"></div><div class="flag"></div>
+  <div class="flag"></div><div class="flag"></div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:16px;">
+    <div class="hero-badge">✨ Édition 2026</div>
+    <button onclick="relaunchBalloons()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;padding:0;line-height:1;display:inline-block;transform:scaleX(-1);" title="Relancer les ballons !">🎈</button>
+  </div>
+  <h1><span class="l1">K</span><span class="l2">e</span><span class="l3">r</span><span class="l4">m</span><span class="l5">e</span><span class="l6">s</span><span class="l7">s</span><span class="l8">e</span></h1>
+  <p class="hero-school">École Maternelle D. Casanova<br>Sartrouville</p>
+
+  <!-- Mot d'accueil -->
+  <div style="background:var(--white);border:2px solid var(--border);border-radius:20px;padding:24px 28px;box-shadow:4px 4px 0 var(--border);max-width:560px;margin:0 auto 8px;text-align:left;position:relative;overflow:hidden;">
+    <div style="position:absolute;font-size:6rem;right:-10px;top:-10px;opacity:0.06;pointer-events:none;">🎉</div>
+    <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.15rem;color:var(--dark);margin-bottom:12px;text-align:center;">🎊 Bienvenue sur le site de la Kermesse 2026 !</div>
+    <p style="font-size:1.05rem;line-height:1.78;color:var(--dark-soft);">
+      La kermesse de l'école maternelle D.&nbsp;Casanova approche à grands pas !<br>Au programme : une soirée festive et gourmande, pleine de jeux, de rires et de bonne humeur pour toute la famille.<br>
+      <span style="display:block;margin:8px 0 8px;">Toutes les informations pratiques sont disponibles sur ce site.</span>
+      Nous avons besoin de vous pour faire de cet événement un moment inoubliable. Si chaque famille pouvait mobiliser un membre, ce serait formidable ! Venez nombreux et n'hésitez surtout pas à donner un coup de main. 🌈<br><br>
+      Rappelons-le : c'est grâce aux bénéfices de la kermesse que nos enfants peuvent profiter de sorties scolaires tout au long de l'année. Votre implication fait vraiment la différence. 💪🏻
+    </p>
+  </div>
+
+  <div class="hero-info">
+    <div class="info-ticket">
+      <div class="ticket-tampon">Infos</div>
+      <div class="ticket-rainbow"></div>
+      <div class="ticket-body">
+        <div class="ticket-row">
+          <span class="ticket-label">📅 Date</span>
+          <span class="ticket-value">Vendredi 26 juin 2026</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">🕔 Horaires</span>
+          <span class="ticket-value">17h30 – 20h30</span>
+        </div>
+        <div class="ticket-row">
+          <span class="ticket-label">📍 Lieu</span>
+          <a href="https://maps.google.com/?q=23+Rue+Lamarck+78500+Sartrouville" target="_blank" class="ticket-value" style="color:var(--dark);text-decoration:none;">Dans la cour de l’école</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV : grands boutons rectangulaires empilés -->
+<nav class="nav-tabs">
+  <button class="tab-btn" data-tab="inscription" onclick="showTab('inscription'); setTimeout(syncFromGateauToStands,100);">✍️ S'inscrire à un stand</button>
+  <button class="tab-btn" data-tab="billetterie" onclick="showTab('billetterie')">🎟️ Billetterie <span style="font-size:0.72em;opacity:0.85;">(Tombolas, Boissons, Repas…)</span></button>
+  <button class="tab-btn" data-tab="gateau"      onclick="showTab('gateau'); setTimeout(syncFromStandsToGateau,100);">🎂 Apporter un gâteau</button>
+  <a class="tab-btn" data-tab="contact" href="mailto:Kermesse.Casanova78500@gmail.com?subject=Kermesse%202026%20-%20École%20D.%20Casanova" style="text-decoration:none; display:block; text-align:center;">✉️ Nous contacter</a>
+</nav>
+
+<!-- ===== ACCUEIL ===== -->
+<section id="accueil" class="section active">
+
+
+
+
+
+  <p class="programme-label">🎠 Les stands de la kermesse</p>
+  <div class="stands-grid">
+    <div class="stand-card c-abricot" onclick="goToStand('jeux')" style="cursor:pointer;">
+      <span class="si">🎯</span><h3>Jeux pour enfants</h3>
+      <p>Chamboule-tout, course de karts, pêche à la ligne…</p>
+    </div>
+    <div class="stand-card c-turquoise" onclick="goToStand('buvette','restauration')" style="cursor:pointer;">
+      <span class="si">🍽️</span><h3>Buvette / Restauration</h3>
+      <p>Boissons fraîches, salades, douceurs… et barbecue !</p>
+    </div>
+    <div class="stand-card c-rose" onclick="goToStand('maquillage')" style="cursor:pointer;">
+      <span class="si">🎨</span><h3>Maquillage</h3>
+      <p>Maquillage… pour un air de fête garanti ! ✨🎨</p>
+    </div>
+    <div class="stand-card c-lavande" onclick="showTab('billetterie')" style="cursor:pointer;">
+      <span class="si">🎟️</span><h3>Tombola</h3>
+      <p>Les tickets seront en vente jusqu'au 24/06 à 12h00. Découvrez le soir de la kermesse si vous faites partie des heureux gagnants et récupérez votre lot ! 🥳</p>
+    </div>
+  </div>
+
+  <!-- Banderole partenaires tombola -->
+<div style="background:#F0EBF8;border-top:3px solid var(--lavande);border-bottom:3px solid var(--lavande);padding:16px 0;overflow:hidden;position:relative;margin-bottom:0;">
+  <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.05rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--corail);text-align:center;margin-bottom:10px;">🎁 Les généreux donateurs de notre tombola</div>
+  <div style="overflow:hidden;white-space:nowrap;position:relative;">
+    <div id="partnerScroll" style="display:inline-block;animation:scrollLeft 30s linear infinite;">
+      <span style="display:inline-flex;gap:32px;padding-right:40px;">
+        <span class="ptag">🌲 Accrocamp St Germain</span>
+        <span class="ptag">🐠 Aquarium La Rochelle</span>
+        <span class="ptag">⛵ Bateaux Mouches</span>
+        <span class="ptag">🏄 Cap Sartrouville</span>
+        <span class="ptag">🏰 Château de la Roche Guyon</span>
+        <span class="ptag">🎬 Cinéma Sartrouville</span>
+        <span class="ptag">🔬 Cité des Enfants</span>
+        <span class="ptag">📜 Cité de l'Histoire</span>
+        <span class="ptag">🌍 Écomusée d'Alsace</span>
+        <span class="ptag">🧗 Hapik Chambourcy</span>
+        <span class="ptag">🦋 La Serre aux Papillons</span>
+        <span class="ptag">🦴 Museum d'Histoire Naturelle</span>
+        <span class="ptag">🎯 Palomano Rueil</span>
+        <span class="ptag">🌳 Parc Aventure Land</span>
+        <span class="ptag">🏃 Parkids</span>
+        </span>
+      <!-- Copie pour boucle infinie -->
+      <span style="display:inline-flex;gap:32px;padding-right:40px;">
+        <span class="ptag">🌲 Accrocamp St Germain</span>
+        <span class="ptag">🐠 Aquarium La Rochelle</span>
+        <span class="ptag">⛵ Bateaux Mouches</span>
+        <span class="ptag">🏄 Cap Sartrouville</span>
+        <span class="ptag">🏰 Château de la Roche Guyon</span>
+        <span class="ptag">🎬 Cinéma Sartrouville</span>
+        <span class="ptag">🔬 Cité des Enfants</span>
+        <span class="ptag">📜 Cité de l'Histoire</span>
+        <span class="ptag">🌍 Écomusée d'Alsace</span>
+        <span class="ptag">🧗 Hapik Chambourcy</span>
+        <span class="ptag">🦋 La Serre aux Papillons</span>
+        <span class="ptag">🦴 Museum d'Histoire Naturelle</span>
+        <span class="ptag">🎯 Palomano Rueil</span>
+        <span class="ptag">🌳 Parc Aventure Land</span>
+        <span class="ptag">🏃 Parkids</span>
+        </span>
+    </div>
+  </div>
+</div>
+
+<style>
+.ptag {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--dark);
+  background: var(--light);
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  white-space: nowrap;
+  display: inline-block;
+}
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+</section>
+
+<!-- ===== BILLETTERIE ===== -->
+<section id="billetterie" class="section">
+  <h2 class="section-title">🎟️ Billetterie</h2>
+
+  <div style="background:#EAF6F5; border:2px solid var(--turquoise); border-radius:14px; padding:16px 20px; margin-bottom:12px; display:flex; align-items:center; gap:14px;">
+    <span style="font-size:1.8rem; flex-shrink:0;">🛒</span>
+    <div>
+      <div style="font-family:'Baloo 2',cursive; font-weight:800; font-size:1.25rem; color:var(--dark); margin-bottom:4px; line-height:1.3;">Achat en ligne disponible<br>via HelloAsso !</div>
+      <div style="font-size:0.88rem; color:var(--dark-soft); line-height:1.6;">
+        Afin de mieux organiser la soirée et de s'assurer que chacun puisse profiter du repas, nous vous encourageons vivement à acheter vos tickets <strong>repas</strong>, <strong>boisson</strong> et <strong>tombola</strong> à l'avance via <strong>HelloAsso</strong>.
+        <br><br>
+        🔒 <em style="font-size:0.82rem;">Pour des raisons de cybersécurité, le lien n'est pas affiché directement sur ce site mais il vous a été transmis dans le <strong>carnet de liaison de votre enfant</strong>. Si besoin, contactez le CAPES par email à <strong>Kermesse.Casanova78500@gmail.com</strong> — nous vous le renverrons avec plaisir !</em>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#FEF6E0;border:2px solid var(--jaune);border-radius:12px;padding:11px 16px;margin-bottom:24px;display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--dark);">
+    <span style="font-size:1.2rem;flex-shrink:0;">⏰</span>
+    <span>Achat en ligne possible <strong>jusqu'au mardi 24 juin</strong> — achat possible le jour même jusqu'à épuisement des tickets.</span>
+  </div>
+
+  <!-- Quelques infos -->
+  <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.2rem;color:var(--dark);margin-bottom:14px;margin-top:28px;">💡 Quelques infos</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:20px;">
+
+    <!-- Box Tickets -->
+    <div style="background:var(--white);border:2px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:3px 3px 0 var(--border);">
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;color:var(--dark);margin-bottom:8px;">🎟️ Tickets</div>
+      <div style="font-size:0.82rem;color:var(--dark-soft);line-height:1.6;">Les enveloppes avec vos tickets vous seront transmises dans les cahiers de liaison quelques jours avant la kermesse.</div>
+    </div>
+
+    <!-- Box Tarifs -->
+    <div style="background:var(--white);border:2px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:3px 3px 0 var(--border);">
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;color:var(--dark);margin-bottom:10px;">🏷️ Tarifs</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;padding:5px 0;border-bottom:1px dashed var(--border);gap:8px;margin-left:26px;"><span style="white-space:nowrap;">🍖 Repas</span><strong style="color:var(--abricot);white-space:nowrap;">6 €</strong></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;padding:5px 0;border-bottom:1px dashed var(--border);gap:8px;margin-left:26px;"><span style="white-space:nowrap;">🥤 Boisson</span><strong style="color:var(--turquoise);white-space:nowrap;">1,50 €</strong></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;padding:5px 0;border-bottom:1px dashed var(--border);gap:8px;margin-left:26px;"><span>🎯 Carte de jeux <span style="opacity:0.6;font-size:0.75rem;">(5 parties)</span></span><strong style="color:var(--vert);white-space:nowrap;">3 €</strong></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;padding:5px 0;border-bottom:1px dashed var(--border);gap:8px;margin-left:26px;"><span>🎂 Gâteau <span style="opacity:0.6;font-size:0.75rem;">(à la part)</span></span><strong style="color:var(--rose);white-space:nowrap;">1 €</strong></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;padding:5px 0;gap:8px;margin-left:26px;"><span style="white-space:nowrap;">🎰 Tombola</span><strong style="color:var(--lavande);white-space:nowrap;">1 € / ticket</strong></div>
+    </div>
+
+  </div>
+
+  <!-- Banderole partenaires -->
+  <div style="background:#F0EBF8;border-top:3px solid var(--lavande);border-bottom:3px solid var(--lavande);padding:16px 0 12px;overflow:hidden;margin-bottom:24px;margin-left:-20px;margin-right:-20px;">
+    <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.05rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--corail);text-align:center;margin-bottom:10px;">🎁 Les généreux donateurs de notre tombola</div>
+    <div style="overflow:hidden;white-space:nowrap;">
+      <div style="display:inline-block;animation:scrollLeft 30s linear infinite;">
+        <span style="display:inline-flex;gap:28px;padding-right:36px;">
+          <span class="ptag">🌲 Accrocamp St Germain</span><span class="ptag">🐠 Aquarium La Rochelle</span><span class="ptag">⛵ Bateaux Mouches</span><span class="ptag">🏄 Cap Sartrouville</span><span class="ptag">🏰 Château de la Roche Guyon</span><span class="ptag">🎬 Cinéma Sartrouville</span><span class="ptag">🔬 Cité des Enfants</span><span class="ptag">📜 Cité de l'Histoire</span><span class="ptag">🌍 Écomusée d'Alsace</span><span class="ptag">🧗 Hapik Chambourcy</span><span class="ptag">🦋 La Serre aux Papillons</span><span class="ptag">🦴 Museum d'Histoire Naturelle</span><span class="ptag">🎯 Palomano Rueil</span><span class="ptag">🌳 Parc Aventure Land</span><span class="ptag">🏃 Parkids</span>
+        </span>
+        <span style="display:inline-flex;gap:28px;padding-right:36px;">
+          <span class="ptag">🌲 Accrocamp St Germain</span><span class="ptag">🐠 Aquarium La Rochelle</span><span class="ptag">⛵ Bateaux Mouches</span><span class="ptag">🏄 Cap Sartrouville</span><span class="ptag">🏰 Château de la Roche Guyon</span><span class="ptag">🎬 Cinéma Sartrouville</span><span class="ptag">🔬 Cité des Enfants</span><span class="ptag">📜 Cité de l'Histoire</span><span class="ptag">🌍 Écomusée d'Alsace</span><span class="ptag">🧗 Hapik Chambourcy</span><span class="ptag">🦋 La Serre aux Papillons</span><span class="ptag">🦴 Museum d'Histoire Naturelle</span><span class="ptag">🎯 Palomano Rueil</span><span class="ptag">🌳 Parc Aventure Land</span><span class="ptag">🏃 Parkids</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== INSCRIPTION ===== -->
+<section id="inscription" class="section">
+  <h2 class="section-title">✍️ S'inscrire à un stand</h2>
+
+  <div class="form-card" id="formCard">
+
+    <p style="font-size:0.82rem;font-style:italic;color:var(--dark-soft);margin-bottom:18px;line-height:1.6;">Ce formulaire est destiné aux adultes souhaitant aider à la tenue d'un stand pendant la kermesse. Chaque coup de main compte ! 💪🏻<br><span style="color:var(--corail);font-weight:700;">* Champs obligatoires</span></p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="form-group">
+        <label class="label-required">👤 Prénom</label>
+        <input type="text" id="prenom" placeholder="Marie">
+        <div class="msg-erreur" id="err-prenom">🙈 Oups, il manque votre prénom !</div>
+      </div>
+      <div class="form-group">
+        <label class="label-required">👤 Nom</label>
+        <input type="text" id="nom" placeholder="Dupont">
+        <div class="msg-erreur" id="err-nom">🙈 Oups, il manque votre nom !</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="label-required">📱 Téléphone</label>
+      <input type="tel" id="tel" placeholder="06 12 34 56 78">
+      <div class="msg-erreur" id="err-tel">🙈 Oups, il manque votre numéro de téléphone !</div>
+    </div>
+    <div class="form-group">
+      <label class="label-required">📧 Email</label>
+      <input type="email" id="email" placeholder="marie@email.com">
+      <div class="msg-erreur" id="err-email">🙈 Oups, il manque votre email !</div>
+    </div>
+
+    <!-- Enfants -->
+    <div style="background:var(--light);border:2px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:20px;">
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;margin-bottom:12px;color:var(--dark);">🧒 Enfant(s) à l'école <span style="color:var(--corail);font-weight:900;">*</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="label-required">Prénom</label>
+          <input type="text" id="enfant1prenom" placeholder="Prénom">
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label class="label-required">Classe</label>
+          <input type="text" id="enfant1classe" placeholder="PS1">
+        </div>
+      </div>
+      <div class="msg-erreur" id="err-enfant">🙈 Oups, il manque le prénom de votre enfant !</div>
+      <div class="msg-erreur" id="err-classe">🙈 Oups, il manque la classe de votre enfant !</div>
+      <div id="enfant2block" style="margin-top:12px;display:none;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group" style="margin-bottom:0">
+            <label>Prénom</label>
+            <input type="text" id="enfant2prenom" placeholder="Prénom">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label>Classe</label>
+            <input type="text" id="enfant2classe" placeholder="PS1">
+          </div>
+        </div>
+      </div>
+      <button type="button" id="addEnfantBtn" onclick="toggleEnfant2()" style="margin-top:12px;font-family:'Baloo 2',cursive;font-weight:700;font-size:0.82rem;padding:6px 14px;border:2px solid var(--border);border-radius:20px;background:var(--white);cursor:pointer;color:var(--dark);">
+        ➕ Ajouter un 2ème enfant
+      </button>
+    </div>
+
+    <!-- Stands avec créneaux dynamiques -->
+    <div style="font-weight:800;font-size:1.1rem;margin-bottom:10px;color:var(--dark);">Stands souhaités <span style="color:var(--corail);font-weight:900;">*</span></div>
+    <div style="font-size:0.82rem;color:var(--dark-soft);margin-bottom:14px;line-height:1.6;">Cochez un ou plusieurs stands. Seuls les créneaux encore disponibles vous seront proposés.</div>
+    <div class="msg-erreur" id="err-stand">🙈 Oups, il manque votre choix de stand !</div>
+
+    <!-- Bouton recherche dispo -->
+    <button type="button" onclick="toggleDispoSearch()" style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.88rem;padding:10px 18px;border:2px solid var(--turquoise);border-radius:12px;background:#EAF6F5;color:var(--turquoise);cursor:pointer;width:100%;margin-bottom:14px;text-align:left;">
+      🔍 Voir les créneaux disponibles par stand
+    </button>
+    <div id="dispoPanel" style="display:none;background:var(--white);border:2px solid var(--turquoise);border-radius:14px;padding:18px;margin-bottom:18px;">
+      <div style="font-weight:800;font-size:0.95rem;margin-bottom:14px;color:var(--dark);">📊 Places disponibles par créneau</div>
+      <div id="dispoSearchResult"></div>
+    </div>
+
+    <!-- Checkboxes stands -->
+    <div id="standsCheckboxes" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px;margin-bottom:20px;"></div>
+
+    <!-- Créneaux + commentaire par stand sélectionné -->
+    <div id="creneauxParStand"></div>
+
+    <!-- Notice individuelle -->
+    <div style="background:#FEF6E0;border:2px solid var(--jaune);border-radius:14px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px;">
+      <span style="font-size:1.4rem;flex-shrink:0;">👤</span>
+      <div style="font-size:0.85rem;color:var(--dark);line-height:1.65;">
+        <strong>Ce formulaire est individuel.</strong> Merci de remplir <strong>une fiche par personne</strong> souhaitant s'inscrire à un stand. Si votre conjoint(e) ou un autre parent souhaite également participer, il lui suffit de remplir sa propre fiche en cliquant à nouveau sur le bouton ci-dessous après validation. 🙏
+      </div>
+    </div>
+
+    <!-- RGPD -->
+    <div style="background:#F5F3FF;border:2px solid #C8C0D8;border-radius:14px;padding:16px 18px;margin-bottom:18px;">
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.88rem;color:var(--dark);margin-bottom:8px;">🔒 Protection de vos données (RGPD)</div>
+      <p style="font-size:0.8rem;color:var(--dark-soft);line-height:1.65;margin-bottom:12px;">
+        Les informations recueillies (nom, prénom, email, téléphone) sont collectées par le <strong>CAPES de l'école maternelle D. Casanova</strong> uniquement dans le cadre de l'organisation de la kermesse 2026. Elles ne seront transmises à aucun tiers et seront supprimées après l'événement. Conformément au RGPD, vous pouvez demander la modification ou la suppression de vos données à tout moment en contactant : <strong>Kermesse.Casanova78500@gmail.com</strong>
+      </p>
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-weight:700;font-size:0.85rem;color:var(--dark);margin:0;">
+        <input type="checkbox" id="rgpdCheck" style="width:18px;height:18px;margin-top:2px;flex-shrink:0;accent-color:var(--lavande);">
+        <span>J'ai lu et j'accepte que mes données personnelles soient utilisées uniquement dans le cadre de l'organisation de la kermesse. *</span>
+      </label>
+      <div class="msg-erreur" id="err-rgpd">🙈 Oups, il faut cocher la case RGPD pour continuer !</div>
+    </div>
+
+    <button class="btn-submit" onclick="submitForm()">🎉 Valider mon inscription</button>
+  </div>
+
+  <!-- SUCCESS + RECAP ADMIN -->
+  <div class="success-msg" id="successMsg">
+    <div class="big-emoji">🎊</div>
+    <h2>Merci beaucoup !</h2>
+    <p style="margin-bottom:16px;">Votre inscription est confirmée — nous comptons sur vous ! 🙏<br>À très vite pour la kermesse ! 🎈</p>
+
+    <!-- Fiche récap admin -->
+    <div id="adminRecap" style="background:white;border:3px solid var(--dark);border-radius:20px;padding:24px;margin:20px 0;text-align:left;max-width:520px;margin-left:auto;margin-right:auto;">
+      <div style="text-align:center;margin-bottom:16px;">
+        <div style="height:6px;background:repeating-linear-gradient(90deg,var(--corail) 0 14.3%,var(--jaune) 14.3% 28.6%,var(--turquoise) 28.6% 42.9%,var(--vert) 42.9% 57.2%,var(--rose) 57.2% 71.5%,var(--abricot) 71.5% 85.8%,var(--lavande) 85.8% 100%);border-radius:4px;margin-bottom:14px;"></div>
+        <div style="font-family:'Baloo 2',cursive;font-weight:900;font-size:1.1rem;color:var(--dark);">📋 Fiche de bénévole — Kermesse 2026</div>
+        <div style="font-size:0.78rem;color:var(--dark-soft);margin-top:2px;">École Maternelle D. Casanova · Sartrouville</div>
+      </div>
+      <div id="recapBody" style="font-size:0.88rem;color:var(--dark);line-height:1.8;"></div>
+      <div style="height:6px;background:repeating-linear-gradient(90deg,var(--corail) 0 14.3%,var(--jaune) 14.3% 28.6%,var(--turquoise) 28.6% 42.9%,var(--vert) 42.9% 57.2%,var(--rose) 57.2% 71.5%,var(--abricot) 71.5% 85.8%,var(--lavande) 85.8% 100%);border-radius:4px;margin-top:16px;"></div>
+    </div>
+
+    <button class="btn-submit" style="max-width:260px;margin:16px auto 0;background:var(--jaune);color:var(--dark);" onclick="printRecap()">🖨️ Imprimer la fiche</button>
+    <button class="btn-submit" style="max-width:260px;margin:10px auto 0;background:var(--turquoise);" onclick="resetForm()">➕ Nouvelle inscription</button>
+  </div>
+</section>
+
+<!-- ===== GÂTEAUX ===== -->
+<section id="gateau" class="section">
+  <h2 class="section-title">🎂 Apporter un gâteau</h2>
+  <div class="gateau-page">
+    <p class="intro-p">
+      Les gourmandises de la kermesse, c'est 100% fait maison… et c'est grâce à vous ! Nous comptons sur votre participation pour régaler petits et grands ! 🎂
+    </p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="ti">🍰</div>
+        <div>
+          <h4>Idées de recettes</h4>
+          <p>Gâteau au yaourt, madeleines, brownies, cake citron, tarte, cupcakes… tout est bienvenu !</p>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="ti">🏫</div>
+        <div>
+          <h4>Dépôt</h4>
+          <p>À remettre à l'instituteur ou l'institutrice <strong>le matin même</strong>.</p>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="ti">⚠️</div>
+        <div>
+          <h4>Ingrédients</h4>
+          <p>Déposez nous avec votre gâteau sa liste des <strong>ingrédients</strong> (œuf, cannelle, farine de maïs, lait…) et surtout des <strong>allergènes</strong> qu'il contient.</p>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="ti">📦</div>
+        <div>
+          <h4>Contenant</h4>
+          <p>Papier alu ou plat/boîte, avec une <strong>étiquette à votre nom</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulaire dédié gâteau -->
+    <div id="gateauFormCard" style="background:var(--white);border:2px solid var(--rose);border-radius:20px;padding:28px 32px;box-shadow:4px 4px 0 var(--rose);margin-top:8px;">
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.1rem;color:var(--dark);margin-bottom:20px;">😋 Ma contribution gourmande</div>
+
+      <div class="form-group">
+        <label class="label-required">👤 Prénom</label>
+        <input type="text" id="gPrenom" placeholder="Marie">
+      </div>
+      <div class="form-group">
+        <label class="label-required">👤 Nom</label>
+        <input type="text" id="gNom" placeholder="Dupont">
+      </div>
+
+      <div class="form-group">
+        <label class="label-required">📧 Email</label>
+        <input type="email" id="gEmail" placeholder="marie@email.com">
+      </div>
+
+      <div class="form-group">
+        <label class="label-required">📱 Téléphone</label>
+        <input type="tel" id="gTel" placeholder="06 12 34 56 78">
+      </div>
+      <div style="background:var(--light);border:2px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:20px;">
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;margin-bottom:12px;color:var(--dark);">🧒 Enfant(s) à l'école <span style="color:var(--corail);font-weight:900;">*</span></div>
+        <div class="row-2" style="margin-bottom:10px;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label>Prénom</label>
+            <input type="text" id="gEnfant1Nom" placeholder="Léa">
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label>Classe</label>
+            <input type="text" id="gEnfant1Classe" placeholder="PS1">
+          </div>
+        </div>
+        <div id="gEnfant2Block" style="display:none;margin-bottom:10px;">
+          <div class="row-2">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Prénom et nom — Enfant 2</label>
+              <input type="text" id="gEnfant2Nom" placeholder="Tom Dupont">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Classe</label>
+              <input type="text" id="gEnfant2Classe" placeholder="PS1">
+            </div>
+          </div>
+        </div>
+        <button type="button" id="gAddEnfantBtn" onclick="toggleGEnfant2()" style="font-family:'Baloo 2',cursive;font-weight:700;font-size:0.82rem;padding:6px 14px;border:2px solid var(--border);border-radius:20px;background:var(--white);cursor:pointer;color:var(--dark);">
+          ➕ Ajouter un 2ème enfant
+        </button>
+      </div>
+
+      <!-- Nombre de gâteaux -->
+      <div class="form-group">
+        <label>🎂 Nombre de gâteaux apportés</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+          <label id="gnb1" style="display:flex;align-items:center;gap:7px;padding:10px 18px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-weight:800;font-size:0.9rem;background:var(--white);user-select:none;">
+            <input type="radio" name="nbGateaux" value="1" style="accent-color:var(--rose);" onchange="onNbGateaux('gnb1')"><span style="display:flex;flex-direction:column;"><span>1 gâteau</span><span style="font-weight:400;font-size:0.7rem;opacity:0.6;margin-top:1px;">(ou autant en petits gâteaux individuels)</span></span>
+          </label>
+          <label id="gnb2" style="display:flex;align-items:center;gap:7px;padding:10px 18px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-weight:800;font-size:0.9rem;background:var(--white);user-select:none;">
+            <input type="radio" name="nbGateaux" value="2" style="accent-color:var(--rose);" onchange="onNbGateaux('gnb2')"><span style="display:flex;flex-direction:column;"><span>2 gâteaux</span><span style="font-weight:400;font-size:0.7rem;opacity:0.6;margin-top:1px;">(ou autant en petits gâteaux individuels)</span></span>
+          </label>
+          <label id="gnb3" style="display:flex;align-items:center;gap:7px;padding:10px 18px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-weight:800;font-size:0.9rem;background:var(--white);user-select:none;">
+            <input type="radio" name="nbGateaux" value="3" style="accent-color:var(--rose);" onchange="onNbGateaux('gnb3')"><span style="display:flex;flex-direction:column;"><span>3 gâteaux</span><span style="font-weight:400;font-size:0.7rem;opacity:0.6;margin-top:1px;">(ou autant en petits gâteaux individuels)</span></span>
+          </label>
+          <label id="gnb4" style="display:flex;align-items:center;gap:7px;padding:10px 18px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-weight:800;font-size:0.9rem;background:var(--white);user-select:none;">
+            <input type="radio" name="nbGateaux" value="4+" style="accent-color:var(--rose);" onchange="onNbGateaux('gnb4')"><span style="display:flex;flex-direction:column;"><span>4 gâteaux ou plus</span><span style="font-weight:400;font-size:0.7rem;opacity:0.6;margin-top:1px;">(ou autant en petits gâteaux individuels)</span></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Détails par gâteau (apparaît dynamiquement) -->
+      <div id="gateauDetails" style="display:none;margin-bottom:16px;">
+        <div id="gateauRows"></div>
+      </div>
+
+      <!-- Commentaire -->
+      <!-- RGPD -->
+      <div style="background:#F5F3FF;border:2px solid #C8C0D8;border-radius:14px;padding:14px 16px;margin-bottom:18px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-weight:700;font-size:0.83rem;color:var(--dark);margin:0;">
+          <input type="checkbox" id="gRgpd" style="width:17px;height:17px;margin-top:2px;flex-shrink:0;accent-color:var(--lavande);">
+          <span>🔒 J'accepte que mes données soient utilisées uniquement dans le cadre de la kermesse.</span>
+        </label>
+      </div>
+
+      <button class="btn-submit" style="background:var(--rose);" onclick="submitGateau()">Valider mon 🎂</button>
+    </div>
+
+    <!-- Succès -->
+    <div id="gateauSuccess" style="display:none;text-align:center;padding:40px 24px;background:var(--white);border:2px solid var(--border);border-radius:20px;box-shadow:4px 4px 0 var(--border);margin-top:8px;">
+      <div style="font-size:4rem;margin-bottom:12px;">🎂</div>
+      <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:1.8rem;margin-bottom:10px;color:var(--dark);">Merci !</div>
+      <p id="gateauSuccessMsg" style="font-size:0.97rem;color:var(--dark-soft);line-height:1.75;"></p>
+      <button class="btn-submit" style="max-width:280px;margin:20px auto 0;background:var(--jaune);color:var(--dark);" onclick="resetGateau()">😋 Ajouter une autre contribution</button>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+    <img src="data:image/png;base64,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" alt="CAPES" style="width:56px;height:56px;min-width:56px;min-height:56px;max-width:56px;max-height:56px;object-fit:contain;flex-shrink:0;display:block;">
+    <div>
+      <p>🎈 Kermesse 2026 — École Maternelle D. Casanova</p>
+      <p>23 Rue Lamarck, 78500 Sartrouville</p>
+      <p>Organisée par l'école et le CAPES (Association des parents d'élèves de l'école)</p>
+      <p>Contact : Kermesse.Casanova78500@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== DONNÉES STANDS =====
+const STANDS_DATA = {
+  installation: { label: '🔧 Installation',          maxParCreneau: 999, creneaux: ['Après-midi à partir de 13h30'] },
+  jeux:         { label: '🎯 Stands de jeux',         maxParCreneau: 1,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'],
+    jeux: ["La queue de l'âne","La toile d'araignée","Cricket","Tchouk ball","Le clown trempé","Tir à 3 points","Chamboule tout","Course aux verres troués","Parcours aux 1000 obstacles","Petit mousse – trouve le trésor","Pêche aux canards","Bowling","Puissance 4","Course de karts"] },
+  maquillage:   { label: '🎨 Maquillage',             maxParCreneau: 4,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'] },
+  cadeaux:      { label: '🎁 Cadeaux',                maxParCreneau: 4,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'] },
+  buvette:      { label: '🥤 Buvette',                maxParCreneau: 4,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'] },
+  restauration: { label: '🍽️ Restauration',     maxParCreneau: 4,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'] },
+  barbecue:     { label: '🍖 Barbecue',               maxParCreneau: 4,   creneaux: ['17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30'] },
+  rangement:    { label: '📦 Rangement',              maxParCreneau: 999, creneaux: ['Après la kermesse'] }
+};
+
+// Places restantes : initialisées au max, décrémentées à chaque inscription
+const placesRestantes = {};
+Object.keys(STANDS_DATA).forEach(function(k) {
+  placesRestantes[k] = {};
+  STANDS_DATA[k].creneaux.forEach(function(c) { placesRestantes[k][c] = STANDS_DATA[k].maxParCreneau; });
+});
+
+// ===== DÉFINITIONS DES JEUX =====
+const JEUX_DEFS = {
+  "La queue de l'âne": "Les yeux bandés, les enfants doivent replacer une queue au bon endroit sur un dessin d’âne. Si tu as bien visé, c’est gagné !",
+  "La toile d'araignée": "Parcours fait avec des ficelles tendues comme une toile ; il faut passer au travers sans faire sonner les clochettes.",
+  "Cricket": "Jeu où il faut guider une balle sur un parcours avec une cross.",
+  "Tchouk ball": "Sport avec un trampoline incliné : lancez le ballon dessus pour qu’il rebondisse hors de portée de l’équipe adverse. Attention, il ne doit pas toucher le sol !",
+  "Le clown trempé": "Visez et faites tomber les têtes de clowns avec des pistolets à eau !",
+  "Tir à 3 points": "Visez et marquez des paniers avec des balles. À vous de jouer !",
+  "Chamboule tout": "Lancez des balles pour faire tomber une pyramide de conserves. Plus facile à dire qu’à faire !",
+  "Course aux verres troués": "Transportez de l’eau dans des verres percés sans trop en perdre. Celui qui apporte le plus d’eau a gagné !",
+  "Parcours aux 1000 obstacles": "Parcours de motricité avec des obstacles à réaliser sans toucher terre.",
+  "Petit mousse – trouve le trésor": "Chasse au trésor où il faut trouver les objets cachés dans l’eau sous la mousse !",
+  "Pêche aux canards": "Les enfants attrapent des canards flottants avec une canne. Simple et adorable ! 🦆",
+  "Bowling": "Faites rouler la boule et renversez un maximum de quilles. Strike en vue !",
+  "Puissance 4": "Alignez 4 jetons de votre couleur avant votre adversaire. Un classique indémodable !",
+  "Course de karts": "Petite course de karts sur un circuit adapté aux enfants. Que le meilleur pilote gagne ! 🏎️"
+};
+
+// ===== COULEURS PAR STAND =====
+const STAND_COLORS = {
+  jeux:'var(--abricot)', maquillage:'var(--rose)', cadeaux:'var(--vert)',
+  buvette:'var(--turquoise)', restauration:'var(--lavande)', barbecue:'var(--corail)',
+  installation:'var(--jaune)', rangement:'var(--dark-soft)'
+};
+
+// ===== INIT CHECKBOXES STANDS =====
+// Source de vérité pour les stands cochés — indépendante du DOM
+var standsCoches = [];
+// Source de vérité pour les créneaux cochés par stand
+var creneauxCoches = {}; // { standKey: [creneau1, creneau2, ...] }
+
+function initStandsCheckboxes() {
+  const container = document.getElementById('standsCheckboxes');
+  if (!container) return;
+  Object.entries(STANDS_DATA).forEach(function(entry) {
+    const k = entry[0], v = entry[1];
+    const hasPlaces = v.creneaux.some(function(c) { return placesRestantes[k][c] > 0; });
+    const lbl = document.createElement('label');
+    const col = STAND_COLORS[k] || 'var(--turquoise)';
+    lbl.style.cssText = 'display:flex;align-items:center;gap:8px;padding:10px 13px;border:2px solid ' + (hasPlaces ? 'var(--border)' : '#ddd') + ';border-radius:12px;cursor:' + (hasPlaces ? 'pointer' : 'not-allowed') + ';font-weight:700;font-size:0.86rem;background:' + (hasPlaces ? 'var(--white)' : '#f5f5f5') + ';color:' + (hasPlaces ? 'var(--dark)' : '#aaa') + ';user-select:none;transition:all 0.18s;';
+    const inp = document.createElement('input');
+    inp.type = 'checkbox'; inp.value = k; inp.name = 'standCheck';
+    inp.disabled = !hasPlaces;
+    inp.style.accentColor = col;
+    inp.addEventListener('change', function() {
+      // Mettre à jour la source de vérité JS
+      if (inp.checked) {
+        if (standsCoches.indexOf(k) === -1) standsCoches.push(k);
+      } else {
+        standsCoches = standsCoches.filter(function(s) { return s !== k; });
+      }
+      lbl.style.background  = inp.checked ? '#EAF6F5' : 'var(--white)';
+      lbl.style.borderColor = inp.checked ? col : 'var(--border)';
+      lbl.style.boxShadow   = inp.checked ? '2px 2px 0 ' + col : 'none';
+      updateCreneauxBlocks();
+      if (inp.checked) {
+        setTimeout(function() {
+          const bloc = document.getElementById('creneauxBlock_' + k);
+          if (bloc) {
+            const y = bloc.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 80);
+      }
+    });
+    lbl.appendChild(inp);
+    lbl.appendChild(document.createTextNode(' ' + v.label + (!hasPlaces ? ' · complet' : '')));
+    container.appendChild(lbl);
+  });
+}
+
+// ===== CRÉNEAUX PAR STAND =====
+function updateCreneauxBlocks() {
+  const checked = standsCoches.slice(); // copie de la source de vérité JS
+  const container = document.getElementById('creneauxParStand');
+
+  // Supprimer les blocs des stands décochés (Array.from = snapshot statique)
+  Array.from(container.children).forEach(function(child) {
+    if (!checked.includes(child.dataset.standKey)) container.removeChild(child);
+  });
+
+  // Ajouter les blocs des stands nouvellement cochés
+  checked.forEach(function(k) {
+    if (document.getElementById('creneauxBlock_' + k)) return; // déjà présent → on garde
+    const stand = STANDS_DATA[k];
+    const col = STAND_COLORS[k] || 'var(--turquoise)';
+    const div = document.createElement('div');
+    div.id = 'creneauxBlock_' + k;
+    div.dataset.standKey = k;
+    div.style.cssText = 'background:var(--light);border:2px solid ' + col + ';border-radius:16px;padding:18px;margin-bottom:14px;';
+
+    let html = '<div style="font-weight:800;font-size:1.05rem;margin-bottom:12px;color:var(--dark);border-left:4px solid ' + col + ';padding-left:10px;">' + stand.label + '</div>';
+
+    // Pour les jeux : liste des jeux + créneaux qui apparaissent sous le jeu sélectionné
+    if (k === 'jeux') {
+      // Préparer le HTML des créneaux (réutilisé sous chaque jeu sélectionné)
+      const creneauxDispo = stand.creneaux.filter(function(c) { return placesRestantes[k][c] > 0; });
+      const creneauxComplets = stand.creneaux.filter(function(c) { return placesRestantes[k][c] <= 0 && stand.maxParCreneau < 999; });
+
+      let creneauxHtml = '<div style="background:#EAF6F5;border:2px solid ' + col + ';border-top:none;border-radius:0 0 12px 12px;padding:12px 14px;">'
+        + '<div style="font-weight:800;font-size:0.83rem;margin-bottom:8px;color:var(--dark);">🕐 Créneau(x) disponible(s)</div>'
+        + '<div style="display:flex;flex-wrap:wrap;gap:7px;">';
+      creneauxDispo.forEach(function(c) {
+        const restant = placesRestantes[k][c];
+        const restantTxt = (restant < stand.maxParCreneau && stand.maxParCreneau < 999) ? ' · ' + restant + ' pl.' : '';
+        const lblId = 'lbl_' + k + '_' + c.replace(/[^a-z0-9]/gi,'');
+        creneauxHtml += '<label id="' + lblId + '" style="display:flex;align-items:center;gap:6px;padding:7px 13px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-size:0.82rem;font-weight:700;background:var(--white);color:var(--dark);user-select:none;">'
+          + '<input type="checkbox" name="creneau_' + k + '" value="' + c + '" style="accent-color:' + col + ';" onchange="onCreneauChange(this,\''+lblId+'\',\''+col+'\')"> '
+          + c + restantTxt + '</label>';
+      });
+      if (creneauxComplets.length) {
+        creneauxComplets.forEach(function(c) {
+          creneauxHtml += '<span style="padding:6px 12px;border:2px solid #ddd;border-radius:50px;font-size:0.78rem;font-weight:700;color:#bbb;background:#f9f9f9;text-decoration:line-through;">' + c + ' · complet</span>';
+        });
+      }
+      creneauxHtml += '</div></div>';
+
+      html += '<div style="margin-bottom:14px;" id="jeuGrid_' + k + '">'
+        + '<div style="font-weight:800;font-size:0.88rem;margin-bottom:10px;">🎯 Choisissez votre jeu <span style="font-weight:400;font-size:0.78rem;color:var(--dark-soft);">(cliquez sur 📖 pour voir la description)</span></div>'
+        + '<div style="display:flex;flex-direction:column;gap:6px;">';
+
+      stand.jeux.forEach(function(j, idx) {
+        const defTxt = JEUX_DEFS[j] || '';
+        const jeuId  = 'jeu_'  + k + '_' + idx;
+        const defId  = 'def_'  + k + '_' + idx;
+        const crenId = 'cren_' + k + '_' + idx;
+        // Échapper apostrophes et guillemets pour les attributs HTML
+        const jSafe  = j.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+        const defSafe = defTxt.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+        html += '<div id="wrap_' + k + '_' + idx + '">'
+          + '<div id="' + jeuId + '" style="display:flex;align-items:center;border:2px solid var(--border);border-radius:12px;background:var(--white);overflow:hidden;transition:border-color 0.18s,background 0.18s;">'
+          + '<label style="display:flex;align-items:center;gap:8px;padding:10px 13px;cursor:pointer;flex:1;font-size:0.84rem;font-weight:700;color:var(--dark);user-select:none;margin:0;">'
+          + '<input type="checkbox" name="jeuSelect_' + k + '" value="' + jSafe + '" style="accent-color:var(--abricot);" onchange="onJeuChange(this,\''+jeuId+'\',\''+crenId+'\')">'
+          + j + '</label>'
+          + (defTxt ? '<button type="button" onclick="toggleJeuDef(\''+defId+'\',this)" data-def="' + defSafe + '" title="D\u00e9couvrir ce jeu" style="flex-shrink:0;padding:10px 12px;background:var(--light);border:none;border-left:2px solid var(--border);cursor:pointer;font-size:1rem;line-height:1;">📖</button>' : '')
+          + '</div>'
+          + '<div id="' + defId + '" style="display:none;background:#FEF6E0;border:2px solid var(--jaune);border-top:none;padding:10px 14px;font-size:0.82rem;color:var(--dark-soft);line-height:1.6;"></div>'
+          // Créneaux (cachés par défaut, apparaissent sous ce jeu quand sélectionné)
+          + '<div id="' + crenId + '" style="display:none;">' + creneauxHtml + '</div>'
+          + '</div>';
+      });
+      html += '</div></div>';
+
+    } else {
+      // Autres stands : créneaux normaux
+      const creneauxDispo = stand.creneaux.filter(function(c) { return placesRestantes[k][c] > 0; });
+      const creneauxComplets = stand.creneaux.filter(function(c) { return placesRestantes[k][c] <= 0 && stand.maxParCreneau < 999; });
+
+      html += '<label style="font-weight:800;font-size:0.88rem;display:block;margin-bottom:8px;">🕐 Créneau(x) disponible(s)</label>'
+        + '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px;">';
+      creneauxDispo.forEach(function(c) {
+        const restant = placesRestantes[k][c];
+        const restantTxt = (restant < stand.maxParCreneau && stand.maxParCreneau < 999) ? ' · ' + restant + ' pl.' : '';
+        const lblId = 'lbl_' + k + '_' + c.replace(/[^a-z0-9]/gi,'');
+        html += '<label id="' + lblId + '" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border:2px solid var(--border);border-radius:50px;cursor:pointer;font-size:0.83rem;font-weight:700;background:var(--white);color:var(--dark);user-select:none;">'
+          + '<input type="checkbox" name="creneau_' + k + '" value="' + c + '" style="accent-color:' + col + ';" onchange="onCreneauChange(this,\''+lblId+'\',\''+col+'\')"> '
+          + c + restantTxt + '</label>';
+      });
+      html += '</div>';
+      if (creneauxComplets.length) {
+        html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">';
+        creneauxComplets.forEach(function(c) {
+          html += '<span style="padding:6px 12px;border:2px solid #ddd;border-radius:50px;font-size:0.78rem;font-weight:700;color:#bbb;background:#f9f9f9;text-decoration:line-through;">' + c + ' · complet</span>';
+        });
+        html += '</div>';
+      }
+    }
+
+    div.innerHTML = html;
+    container.appendChild(div);
+  });
+
+  // Re-forcer l'état visuel des checkboxes stands (au cas où le DOM les aurait réinitialisées)
+  checked.forEach(function(k) {
+    var inp = document.querySelector('input[name="standCheck"][value="' + k + '"]');
+    if (inp && !inp.checked) inp.checked = true;
+  });
+
+  updateConflicts();
+}
+
+function toggleJeuDef(defId, btn) {
+  const defBox = document.getElementById(defId);
+  if (!defBox) return;
+  const isVisible = defBox.style.display !== 'none';
+  // Fermer toutes les def-boxes du même grid
+  const grid = btn.closest('[id^="jeuGrid_"]');
+  if (grid) {
+    grid.querySelectorAll('[id^="def_"]').forEach(function(d) {
+      d.style.display = 'none';
+      // Restaurer les coins arrondis du jeu si ses créneaux ne sont pas affichés
+      const jeuBox = d.previousElementSibling;
+      const crenBox = d.nextElementSibling;
+      if (jeuBox && crenBox && crenBox.style.display === 'none') jeuBox.style.borderRadius = '12px';
+    });
+    grid.querySelectorAll('button[data-def]').forEach(function(b) { b.style.background = 'var(--light)'; b.style.color = 'var(--dark-soft)'; });
+  }
+  if (!isVisible) {
+    defBox.style.display = 'block';
+    defBox.textContent = btn.getAttribute('data-def');
+    btn.style.background = 'var(--jaune)';
+    btn.style.color = 'var(--dark)';
+    // Ajuster les coins arrondis du jeu box
+    const jeuBox = defBox.previousElementSibling;
+    if (jeuBox) jeuBox.style.borderRadius = '12px 12px 0 0';
+  }
+}
+
+function onJeuChange(inp, jeuId, crenId) {
+  const jeuBox = document.getElementById(jeuId);
+  const crenBox = document.getElementById(crenId);
+
+  if (inp.checked) {
+    // Highlight le jeu coché
+    if (jeuBox) {
+      jeuBox.style.borderColor = 'var(--abricot)';
+      jeuBox.style.background  = '#FEF3EC';
+      jeuBox.style.boxShadow   = '2px 2px 0 var(--abricot)';
+      jeuBox.style.borderRadius = '12px 12px 0 0';
+    }
+    // Afficher ses créneaux
+    if (crenBox) {
+      crenBox.style.display = 'block';
+      setTimeout(function() {
+        updateConflicts();
+        const y = crenBox.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 60);
+    }
+  } else {
+    // Décocher : retirer le highlight et masquer les créneaux
+    if (jeuBox) {
+      jeuBox.style.borderColor  = 'var(--border)';
+      jeuBox.style.background   = 'var(--white)';
+      jeuBox.style.boxShadow    = 'none';
+      jeuBox.style.borderRadius = '12px';
+    }
+    if (crenBox) {
+      // Décocher les créneaux de ce jeu et mettre à jour la source de vérité
+      crenBox.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.checked = false;
+        var standKey = cb.name.replace('creneau_', '');
+        if (creneauxCoches[standKey]) {
+          creneauxCoches[standKey] = creneauxCoches[standKey].filter(function(c) { return c !== cb.value; });
+        }
+      });
+      crenBox.style.display = 'none';
+      updateConflicts();
+    }
+  }
+}
+
+function getCreneauxDejaChoisis(excludeCrenBlockId) {
+  const choisis = new Set();
+  // Parcourir tous les créneaux cochés dans TOUS les blocs sauf celui exclu
+  document.querySelectorAll('[id^="cren_"]:not([style*="display: none"]) input[type="checkbox"]:checked, [id^="creneauxBlock_"] input[name^="creneau_"]:checked').forEach(function(inp) {
+    // Identifier le bloc parent de cet input
+    const parentBlock = inp.closest('[id^="cren_"]') || inp.closest('[id^="creneauxBlock_"]');
+    const parentId = parentBlock ? parentBlock.id : null;
+    if (parentId !== excludeCrenBlockId) choisis.add(inp.value);
+  });
+  return choisis;
+}
+
+function updateConflicts() {
+  // Traiter tous les blocs de créneaux visibles (par jeu ET par stand)
+  const allCrenBlocks = [
+    ...Array.from(document.querySelectorAll('[id^="cren_"]')).filter(function(el) { return el.style.display !== 'none'; }),
+    ...Array.from(document.querySelectorAll('[id^="creneauxBlock_"]'))
+  ];
+
+  allCrenBlocks.forEach(function(block) {
+    const blockId = block.id;
+    // Déterminer le nom de l'input (creneau_jeux ou creneau_maquillage etc.)
+    const inputs = block.querySelectorAll('input[type="checkbox"][name^="creneau_"]');
+    if (!inputs.length) return;
+    const standKey = inputs[0].name.replace('creneau_', '');
+    const autresChoisis = getCreneauxDejaChoisis(blockId);
+
+    inputs.forEach(function(inp) {
+      const lbl = inp.closest('label') || document.getElementById('lbl_' + standKey + '_' + inp.value.replace(/[^a-z0-9]/gi,''));
+      if (!lbl) return;
+      const conflit = autresChoisis.has(inp.value);
+      const placesDispo = (placesRestantes[standKey] && placesRestantes[standKey][inp.value] !== undefined) ? placesRestantes[standKey][inp.value] : 999;
+      if (conflit && !inp.checked) {
+        inp.disabled = true;
+        lbl.style.background  = '#FFF0F0';
+        lbl.style.borderColor = '#FFAAAA';
+        lbl.style.color       = '#CC6666';
+        lbl.style.cursor      = 'not-allowed';
+        lbl.title = '⚠️ Vous avez déjà un stand sur ce créneau';
+      } else if (!conflit && !inp.checked) {
+        inp.disabled = (placesDispo <= 0);
+        lbl.style.background  = 'var(--white)';
+        lbl.style.borderColor = 'var(--border)';
+        lbl.style.color       = 'var(--dark)';
+        lbl.style.cursor      = inp.disabled ? 'not-allowed' : 'pointer';
+        lbl.title = '';
+      }
+    });
+  });
+}
+
+function onCreneauChange(inp, lblId, col) {
+  const lbl = document.getElementById(lblId);
+  if (lbl) {
+    lbl.style.background  = inp.checked ? '#EAF6F5' : 'var(--white)';
+    lbl.style.borderColor = inp.checked ? col : 'var(--border)';
+    lbl.style.boxShadow   = inp.checked ? '2px 2px 0 ' + col : 'none';
+  }
+  // Mettre à jour la source de vérité JS
+  var standKey = inp.name.replace('creneau_', '');
+  if (!creneauxCoches[standKey]) creneauxCoches[standKey] = [];
+  if (inp.checked) {
+    if (creneauxCoches[standKey].indexOf(inp.value) === -1) creneauxCoches[standKey].push(inp.value);
+  } else {
+    creneauxCoches[standKey] = creneauxCoches[standKey].filter(function(c) { return c !== inp.value; });
+  }
+  updateConflicts();
+}
+
+// ===== RECHERCHE PAR CRÉNEAU =====
+function renderDispoSearch() {
+  const container = document.getElementById('dispoSearchResult');
+  if (!container) return;
+  const creneaux = ['Après-midi à partir de 13h30','17h30 – 18h15','18h15 – 19h00','19h00 – 19h45','19h45 – 20h30','Après la kermesse'];
+  let html = '';
+  creneaux.forEach(function(c) {
+    const standsForCreneau = Object.entries(STANDS_DATA).filter(function(entry) {
+      return entry[1].creneaux.includes(c) && placesRestantes[entry[0]][c] > 0;
+    });
+    if (!standsForCreneau.length) return;
+    html += '<div style="margin-bottom:16px;">'
+      + '<div style="font-weight:800;font-size:0.92rem;color:var(--dark);margin-bottom:8px;padding:6px 12px;background:var(--light);border-radius:8px;border-left:4px solid var(--turquoise);">🕐 ' + c + '</div>'
+      + '<div style="display:flex;flex-wrap:wrap;gap:8px;">';
+    standsForCreneau.forEach(function(entry) {
+      const k = entry[0], v = entry[1];
+      const restant = placesRestantes[k][c];
+      const col = STAND_COLORS[k] || 'var(--turquoise)';
+      const restantTxt = v.maxParCreneau < 999 ? restant + '/' + v.maxParCreneau + ' pl.' : '∞';
+      html += '<button data-stand="' + k + '" data-creneau="' + encodeURIComponent(c) + '" onclick="dispoGoToStand(this)" style="display:flex;align-items:center;gap:6px;padding:7px 14px;border:2px solid ' + col + ';border-radius:50px;font-size:0.82rem;font-weight:700;background:var(--white);color:var(--dark);cursor:pointer;font-family:Nunito,sans-serif;">'
+        + v.label + ' <span style="font-size:0.75rem;color:' + col + ';font-weight:800;">(' + restantTxt + ')</span> <span style="font-size:0.7rem;opacity:0.6;">→ s\'inscrire</span></button>';
+    });
+    html += '</div></div>';
+  });
+  container.innerHTML = html || '<p style="font-size:0.88rem;color:var(--dark-soft);">Aucune place disponible pour le moment.</p>';
+}
+
+function toggleDispoSearch() {
+  const panel = document.getElementById('dispoPanel');
+  const isVisible = panel.style.display !== 'none';
+  panel.style.display = isVisible ? 'none' : 'block';
+  if (!isVisible) renderDispoSearch();
+}
+
+function toggleEnfant2() {
+  const block = document.getElementById('enfant2block');
+  const btn = document.getElementById('addEnfantBtn');
+  const visible = block.style.display !== 'none';
+  block.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '➕ Ajouter un 2ème enfant' : '✕ Supprimer le 2ème enfant';
+}
+
+function relaunchBalloons() {
+  const container = document.getElementById('balloonContainer');
+  container.innerHTML = '';
+  spawnWave(28, 0);
+  setTimeout(function() { spawnWave(20, 0); }, 800);
+  setTimeout(function() { container.innerHTML = ''; }, 10000);
+}
+
+function showTab(tab) {
+  document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  const section = document.getElementById(tab);
+  section.classList.add('active');
+  const btn = document.querySelector('[data-tab="' + tab + '"]');
+  if (btn) btn.classList.add('active');
+  setTimeout(function() {
+    const y = section.getBoundingClientRect().top + window.pageYOffset - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }, 50);
+}
+
+function submitForm() {
+  const prenom = document.getElementById('prenom').value.trim();
+  const nom    = document.getElementById('nom').value.trim();
+  const email  = document.getElementById('email').value.trim();
+  const tel    = document.getElementById('tel').value.trim();
+  const enfant1prenom = document.getElementById('enfant1prenom') ? document.getElementById('enfant1prenom').value.trim() : '';
+
+  // Effacer TOUTES les erreurs précédentes
+  ['prenom','nom','tel','email'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.classList.remove('champ-erreur');
+    var err = document.getElementById('err-' + id); if (err) err.classList.remove('show');
+  });
+  // Erreurs spéciales
+  ['err-enfant','err-stand','err-rgpd','err-classe'].forEach(function(id) {
+    var err = document.getElementById(id); if (err) err.classList.remove('show');
+  });
+  var elEnfant = document.getElementById('enfant1prenom');
+  if (elEnfant) elEnfant.classList.remove('champ-erreur');
+  var elClasse = document.getElementById('enfant1classe');
+  if (elClasse) elClasse.classList.remove('champ-erreur');
+
+  const enfant1classe = document.getElementById('enfant1classe') ? document.getElementById('enfant1classe').value.trim() : '';
+
+  function erreur(id, msgId) {
+    var el = document.getElementById(id);
+    var err = document.getElementById(msgId || ('err-' + id));
+    if (el) el.classList.add('champ-erreur');
+    if (err) err.classList.add('show');
+  }
+
+  var hasError = false;
+  if (!prenom)        { erreur('prenom'); hasError = true; }
+  if (!nom)           { erreur('nom'); hasError = true; }
+  if (!email)         { erreur('email'); hasError = true; }
+  if (!tel)           { erreur('tel'); hasError = true; }
+  if (!enfant1prenom) { erreur('enfant1prenom', 'err-enfant'); hasError = true; }
+  if (!enfant1classe) { erreur('enfant1classe', 'err-classe'); hasError = true; }
+  if (hasError) {
+    // Scroller vers le premier champ en erreur
+    var first = document.querySelector('.champ-erreur');
+    if (first) { var y = first.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top:y, behavior:'smooth' }); }
+    return;
+  }
+
+  const standsChecked = standsCoches.slice();
+  var errStand = document.getElementById('err-stand');
+  if (!standsChecked.length) {
+    if (errStand) errStand.classList.add('show');
+    return;
+  }
+  if (errStand) errStand.classList.remove('show');
+
+  let inscriptions = []; let valid = true;
+
+  // Vérifier conflits de créneaux entre stands
+  const allCreneauxChoisis = [];
+  standsChecked.forEach(function(k) {
+    if (!valid) return;
+    var crens = creneauxCoches[k] ? creneauxCoches[k] : [];
+    crens.forEach(function(c) {
+      const conflict = allCreneauxChoisis.find(function(x) { return x.creneau === c; });
+      if (conflict) {
+        alert('\u26A0\uFE0F Conflit horaire : le cr\u00E9neau "' + c + '" est d\u00E9j\u00E0 s\u00E9lectionn\u00E9 pour ' + STANDS_DATA[conflict.stand].label + ' ET ' + STANDS_DATA[k].label + '. Vous ne pouvez pas \u00EAtre sur deux stands en m\u00EAme temps !');
+        valid = false;
+      }
+      allCreneauxChoisis.push({ creneau: c, stand: k });
+    });
+  });
+  if (!valid) return;
+
+  standsChecked.forEach(function(k) {
+    if (!valid) return;
+    // Lire depuis la source de vérité JS (pas le DOM qui peut avoir perdu les états)
+    const creneauxChecked = creneauxCoches[k] ? creneauxCoches[k].slice() : [];
+    if (!creneauxChecked.length) {
+      var errCren = document.getElementById('err-creneau-' + k);
+      if (errCren) errCren.classList.add('show');
+      valid = false; return;
+    }
+    const jeuxChecked = Array.from(document.querySelectorAll('input[name="jeuSelect_' + k + '"]:checked')).map(function(i) { return i.value; });
+    const jeuLabel = jeuxChecked.length > 0 ? jeuxChecked.join(', ') : '';
+    inscriptions.push({ standKey:k, standLabel:STANDS_DATA[k].label, jeu:jeuLabel, creneaux:creneauxChecked, comment:'' });
+  });
+  if (!valid) return;
+  var errRgpd = document.getElementById('err-rgpd');
+  if (!document.getElementById('rgpdCheck').checked) {
+    if (errRgpd) errRgpd.classList.add('show');
+    return;
+  }
+  if (errRgpd) errRgpd.classList.remove('show');
+
+  // Décrémenter places restantes
+  inscriptions.forEach(function(ins) {
+    ins.creneaux.forEach(function(c) {
+      if (placesRestantes[ins.standKey][c] > 0) placesRestantes[ins.standKey][c]--;
+    });
+  });
+
+  // Reconstruire les checkboxes stands (mise à jour des places)
+  const standsBox = document.getElementById('standsCheckboxes');
+  standsBox.innerHTML = '';
+  initStandsCheckboxes();
+
+  // Récap
+  const e1p = document.getElementById('enfant1prenom') ? document.getElementById('enfant1prenom').value.trim() : '';
+  const e1c = document.getElementById('enfant1classe')  ? document.getElementById('enfant1classe').value.trim()  : '';
+  const e2p = document.getElementById('enfant2prenom') ? document.getElementById('enfant2prenom').value.trim() : '';
+  const e2c = document.getElementById('enfant2classe')  ? document.getElementById('enfant2classe').value.trim()  : '';
+  const couleurs = ['var(--turquoise)','var(--abricot)','var(--rose)','var(--vert)','var(--lavande)','var(--jaune)'];
+
+  let html = '<div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--border);">'
+    + '<div style="font-weight:800;font-size:1rem;">👤 ' + prenom + ' ' + nom + '</div>'
+    + (tel ? '<div style="font-size:0.85rem;color:var(--dark-soft);">📱 ' + tel + '</div>' : '')
+    + '<div style="font-size:0.85rem;color:var(--dark-soft);">📧 ' + email + '</div>'
+    + (e1n ? '<div style="font-size:0.85rem;color:var(--dark-soft);">🧒 ' + e1p + ' ' + e1n + (e1c ? ' · ' + e1c : '') + '</div>' : '')
+    + (e2n ? '<div style="font-size:0.85rem;color:var(--dark-soft);">🧒 ' + e2p + ' ' + e2n + (e2c ? ' · ' + e2c : '') + '</div>' : '')
+    + '</div><div style="font-weight:800;font-size:0.88rem;margin-bottom:10px;">📋 Inscriptions aux stands :</div>';
+
+  inscriptions.forEach(function(ins, i) {
+    const col = couleurs[i % couleurs.length];
+    html += '<div style="background:var(--light);border-left:4px solid ' + col + ';border-radius:8px;padding:10px 14px;margin-bottom:10px;">'
+      + '<div style="font-weight:800;font-size:0.92rem;">' + ins.standLabel + (ins.jeu ? ' — ' + ins.jeu : '') + '</div>'
+      + '<div style="font-size:0.83rem;color:var(--dark-soft);margin-top:3px;">🕐 ' + ins.creneaux.join(' · ') + '</div>'
+      + (ins.comment ? '<div style="font-size:0.81rem;color:var(--dark-soft);margin-top:3px;font-style:italic;">💬 ' + ins.comment + '</div>' : '')
+      + '</div>';
+  });
+  html += '<div style="margin-top:12px;font-size:0.75rem;color:var(--dark-soft);text-align:center;opacity:0.6;">Enregistré le ' + new Date().toLocaleDateString('fr-FR') + ' · Kermesse 2026 · École D. Casanova</div>';
+
+  // Envoi vers Google Sheets
+  var standsDetail = inscriptions.map(function(ins) {
+    return ins.standLabel + (ins.jeu ? ' — ' + ins.jeu : '') + ' : ' + ins.creneaux.join(', ') + (ins.comment ? ' (Note: ' + ins.comment + ')' : '');
+  }).join(' | ');
+
+  // Afficher spinner pendant l'envoi
+  const submitBtn = document.querySelector('#formCard .btn-submit');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '⏳ Vérification en cours…'; }
+
+  const enfantStr = (e1p + (e1c ? ' · ' + e1c : '')) + (e2p ? ' / ' + e2p + (e2c ? ' · ' + e2c : '') : '');
+
+  // Afficher la confirmation IMMÉDIATEMENT
+  if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '🎉 Valider mon inscription !'; }
+  document.getElementById('recapBody').innerHTML = html;
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+
+  // Envoyer les données au Sheet en arrière-plan (fire & forget)
+  try {
+    fetch('https://script.google.com/macros/s/AKfycbwnOzKpCcJOvtUVSjn5D1Kw9kVvOuIu0YjucCq5HmykqEKSy-kCXaOHBQSbZ_NLedE/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prenom: prenom, nom: nom, tel: tel, email: email,
+        enfant: enfantStr,
+        stands: inscriptions
+      })
+    });
+  } catch(err) { console.log('Sheets error:', err); }
+
+} // fin submitForm
+
+function printRecap() {
+  const recap = document.getElementById('adminRecap').innerHTML;
+  const win = window.open('', '_blank');
+  win.document.write('<html><head><title>Fiche bénévole — Kermesse 2026</title>'
+    + '<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">'
+    + '<style>:root{--turquoise:#5BB8B0;--abricot:#E8916A;--rose:#E07A9A;--vert:#72B583;--lavande:#8A7BB5;--jaune:#F5C842;--dark:#2C2C3E;--dark-soft:#4A4A5A;--light:#FAF7F2;--border:#C8C0B8;--corail:#D4706A;}'
+    + 'body{font-family:Nunito,sans-serif;padding:30px;max-width:600px;margin:0 auto;}'
+    + '@media print{button{display:none}}</style>'
+    + '</head><body>' + recap
+    + '<br><button onclick="window.print()" style="padding:10px 24px;font-weight:800;font-size:1rem;border:2px solid #333;border-radius:10px;cursor:pointer;background:#72B583;color:white;margin-top:16px;">🖨️ Imprimer</button>'
+    + '</body></html>');
+  win.document.close();
+}
+
+function resetForm() {
+  // Sauvegarder les infos personnelles pour pré-remplir
+  const savedPrenom  = document.getElementById('prenom') ? document.getElementById('prenom').value : '';
+  const savedNom     = document.getElementById('nom') ? document.getElementById('nom').value : '';
+  const savedEmail   = document.getElementById('email') ? document.getElementById('email').value : '';
+  const savedTel     = document.getElementById('tel') ? document.getElementById('tel').value : '';
+  const savedE1p     = document.getElementById('enfant1prenom') ? document.getElementById('enfant1prenom').value : '';
+  const savedE1n     = document.getElementById('enfant1nom') ? document.getElementById('enfant1nom').value : '';
+  const savedE1c     = document.getElementById('enfant1classe') ? document.getElementById('enfant1classe').value : '';
+
+  document.getElementById('formCard').style.display = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+
+  // Remettre les infos personnelles
+  if (document.getElementById('prenom'))       document.getElementById('prenom').value       = savedPrenom;
+  if (document.getElementById('nom'))          document.getElementById('nom').value          = savedNom;
+  if (document.getElementById('email'))        document.getElementById('email').value        = savedEmail;
+  if (document.getElementById('tel'))          document.getElementById('tel').value          = savedTel;
+  if (document.getElementById('enfant1prenom'))document.getElementById('enfant1prenom').value = savedE1p;
+  if (document.getElementById('enfant1nom'))   document.getElementById('enfant1nom').value   = savedE1n;
+  if (document.getElementById('enfant1classe'))document.getElementById('enfant1classe').value = savedE1c;
+
+  // Réinitialiser seulement stands, créneaux et RGPD
+  document.getElementById('rgpdCheck').checked = false;
+  standsCoches = [];
+  creneauxCoches = {};
+  document.querySelectorAll('input[name="standCheck"]').forEach(function(i) { i.checked = false; });
+  document.querySelectorAll('#standsCheckboxes label').forEach(function(l) {
+    l.style.background = 'var(--white)'; l.style.borderColor = 'var(--border)'; l.style.boxShadow = 'none';
+  });
+  document.getElementById('creneauxParStand').innerHTML = '';
+  const e2 = document.getElementById('enfant2block');
+  if (e2) e2.style.display = 'none';
+  const btn = document.getElementById('addEnfantBtn');
+  if (btn) btn.textContent = '➕ Ajouter un 2ème enfant';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  try { initStandsCheckboxes(); } catch(e) { console.warn('initStandsCheckboxes:', e); }
+
+  // Effacer les messages d'erreur en temps réel quand l'utilisateur remplit un champ
+  var champsErreur = [
+    { champ:'prenom',        err:'err-prenom' },
+    { champ:'nom',           err:'err-nom' },
+    { champ:'tel',           err:'err-tel' },
+    { champ:'email',         err:'err-email' },
+    { champ:'enfant1prenom', err:'err-enfant' },
+    { champ:'enfant1classe', err:'err-classe' },
+  ];
+  champsErreur.forEach(function(c) {
+    var el = document.getElementById(c.champ);
+    var err = document.getElementById(c.err);
+    if (el) {
+      el.addEventListener('input', function() {
+        if (el.value.trim()) {
+          el.classList.remove('champ-erreur');
+          if (err) err.classList.remove('show');
+        }
+      });
+    }
+  });
+
+  // Effacer erreur RGPD quand on coche
+  var rgpd = document.getElementById('rgpdCheck');
+  var errRgpd = document.getElementById('err-rgpd');
+  if (rgpd && errRgpd) {
+    rgpd.addEventListener('change', function() {
+      if (rgpd.checked) errRgpd.classList.remove('show');
+    });
+  }
+});
+</script>
+
+<script>
+// Synchronise les infos personnelles entre les deux formulaires
+function syncFromStandsToGateau() {
+  var map = { 'prenom':'gPrenom', 'nom':'gNom', 'email':'gEmail', 'tel':'gTel', 'enfant1prenom':'gEnfant1Nom', 'enfant1classe':'gEnfant1Classe' };
+  Object.keys(map).forEach(function(src) {
+    var s = document.getElementById(src); var d = document.getElementById(map[src]);
+    if (s && d && s.value.trim()) d.value = s.value.trim();
+  });
+}
+function syncFromGateauToStands() {
+  var map = { 'gPrenom':'prenom', 'gNom':'nom', 'gEmail':'email', 'gTel':'tel', 'gEnfant1Nom':'enfant1prenom', 'gEnfant1Classe':'enfant1classe' };
+  Object.keys(map).forEach(function(src) {
+    var s = document.getElementById(src); var d = document.getElementById(map[src]);
+    if (s && d && s.value.trim()) d.value = s.value.trim();
+  });
+}
+
+// ===== FORMULAIRE GÂTEAU =====
+function dispoGoToStand(btn) {
+  var stand = btn.getAttribute('data-stand');
+  var creneau = decodeURIComponent(btn.getAttribute('data-creneau') || '');
+  goToStand(stand, creneau);
+}
+
+function goToStand() {
+  var args = Array.from(arguments);
+  var standKeys = args.filter(function(a) { return STANDS_DATA[a]; });
+  var creneau = args.find(function(a) { return !STANDS_DATA[a]; }) || null;
+  showTab('inscription');
+  setTimeout(function() {
+    // Réinitialiser les sources de vérité JS
+    standsCoches = [];
+    creneauxCoches = {};
+
+    // Décocher tous les stands dans le DOM
+    document.querySelectorAll('input[name="standCheck"]').forEach(function(i) {
+      i.checked = false;
+      var lbl = i.closest('label');
+      if (lbl) { lbl.style.background='var(--white)'; lbl.style.borderColor='var(--border)'; lbl.style.boxShadow='none'; }
+    });
+    document.getElementById('creneauxParStand').innerHTML = '';
+
+    // Cocher les stands demandés
+    standKeys.forEach(function(k) {
+      var inp = document.querySelector('input[name="standCheck"][value="' + k + '"]');
+      if (inp && !inp.disabled) {
+        inp.checked = true;
+        // Mettre à jour la source de vérité JS
+        if (standsCoches.indexOf(k) === -1) standsCoches.push(k);
+        var lbl = inp.closest('label');
+        var col = inp.style.accentColor || 'var(--turquoise)';
+        if (lbl) { lbl.style.background='#EAF6F5'; lbl.style.borderColor=col; lbl.style.boxShadow='2px 2px 0 '+col; }
+        updateCreneauxBlocks();
+        // Pré-cocher le créneau si fourni
+        if (creneau) {
+          setTimeout(function() {
+            var cb = document.querySelector('input[name="creneau_' + k + '"][value="' + creneau + '"]');
+            if (cb && !cb.disabled) {
+              cb.checked = true;
+              // Mettre à jour creneauxCoches
+              if (!creneauxCoches[k]) creneauxCoches[k] = [];
+              if (creneauxCoches[k].indexOf(creneau) === -1) creneauxCoches[k].push(creneau);
+              // Mettre à jour le style du label
+              var lblId = 'lbl_' + k + '_' + creneau.replace(/[^a-z0-9]/gi,'');
+              var lblCren = document.getElementById(lblId);
+              if (lblCren) { lblCren.style.background='#EAF6F5'; lblCren.style.borderColor=col; lblCren.style.boxShadow='2px 2px 0 '+col; }
+              updateConflicts();
+            }
+          }, 200);
+        }
+      }
+    });
+
+    // Fermer le panel dispo
+    var dispoPanel = document.getElementById('dispoPanel');
+    if (dispoPanel) dispoPanel.style.display = 'none';
+
+    // Scroll vers le formulaire
+    var section = document.getElementById('inscription');
+    if (section) {
+      var y = section.getBoundingClientRect().top + window.pageYOffset - 12;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 100);
+}
+
+function toggleGEnfant2() {
+  const block = document.getElementById('gEnfant2Block');
+  const btn   = document.getElementById('gAddEnfantBtn');
+  const visible = block.style.display !== 'none';
+  block.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '➕ Ajouter un 2ème enfant' : '✕ Supprimer le 2ème enfant';
+}
+function onNbGateaux(selectedId) {
+  ['gnb1','gnb2','gnb3','gnb4','gnb5'].forEach(function(id) {
+    const lbl = document.getElementById(id);
+    if (!lbl) return;
+    const selected = id === selectedId;
+    lbl.style.background  = selected ? '#FBF0F4' : 'var(--white)';
+    lbl.style.borderColor = selected ? 'var(--rose)' : 'var(--border)';
+    lbl.style.boxShadow   = selected ? '2px 2px 0 var(--rose)' : 'none';
+  });
+  const val = document.querySelector('input[name="nbGateaux"]:checked');
+  if (!val) return;
+  document.getElementById('gateauDetails').style.display = 'none';
+  document.getElementById('gateauRows').innerHTML = '';
+}
+
+function submitGateau() {
+  var prenom  = document.getElementById('gPrenom').value.trim();
+  var nom     = document.getElementById('gNom').value.trim();
+  var email   = document.getElementById('gEmail').value.trim();
+  var tel     = document.getElementById('gTel').value.trim();
+  var nbVal   = document.querySelector('input[name="nbGateaux"]:checked');
+  var e1nom   = document.getElementById('gEnfant1Nom').value.trim();
+  // Effacer erreurs précédentes
+  ['gPrenom','gNom','gEmail','gTel','gEnfant1Nom'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.classList.remove('champ-erreur');
+  });
+
+  function gErreur(id, msg) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.add('champ-erreur'); el.focus(); }
+    alert(msg); return true;
+  }
+
+  if (!prenom) { if (gErreur('gPrenom',    'Veuillez indiquer votre prénom !')) return; }
+  if (!nom)    { if (gErreur('gNom',       'Veuillez indiquer votre nom !')) return; }
+  if (!email)  { if (gErreur('gEmail',     'Veuillez indiquer votre email !')) return; }
+  if (!tel)    { if (gErreur('gTel',       'Veuillez indiquer votre téléphone !')) return; }
+  if (!e1nom)  { if (gErreur('gEnfant1Nom','Veuillez indiquer le prénom et nom d\'au moins un enfant !')) return; }
+  if (!nbVal)  { alert('Veuillez indiquer le nombre de gâteaux !'); return; }
+  if (!document.getElementById('gRgpd').checked) { alert('Veuillez accepter la politique RGPD.'); return; }
+  var nb = nbVal.value === '4+' ? '4 ou plus' : nbVal.value;
+  var enfant1 = (document.getElementById('gEnfant1Nom').value.trim() || '') + (document.getElementById('gEnfant1Classe').value.trim() ? ' · ' + document.getElementById('gEnfant1Classe').value.trim() : '');
+  var enfant2 = (document.getElementById('gEnfant2Nom') && document.getElementById('gEnfant2Nom').value.trim()) ? document.getElementById('gEnfant2Nom').value.trim() + (document.getElementById('gEnfant2Classe').value.trim() ? ' · ' + document.getElementById('gEnfant2Classe').value.trim() : '') : '';
+  var enfantLine = enfant1 ? ('<br>🧒 ' + enfant1 + (enfant2 ? ' & ' + enfant2 : '')) : '';
+  var commentaire = document.getElementById('gCommentaire') ? document.getElementById('gCommentaire').value.trim() : '';
+  var pluriel = (nb !== '1') ? 'x' : '';
+  var msg = '<strong>' + prenom + ' ' + nom + '</strong> a bien été enregistré(e) pour apporter <strong>' + nb + ' gâteau' + pluriel + '</strong>.'
+    + '<br><br>Pensez à déposer vos gâteaux auprès de l\'instituteur ou l\'institutrice le jour J. 🏫'
+    + (commentaire ? '<br><br>💬 ' + commentaire : '');
+  document.getElementById('gateauSuccessMsg').innerHTML = msg;
+
+  // Envoi vers Google Sheets
+  fetch('https://script.google.com/macros/s/AKfycbwnOzKpCcJOvtUVSjn5D1Kw9kVvOuIu0YjucCq5HmykqEKSy-kCXaOHBQSbZ_NLedE/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      type: 'gateau',
+      prenom: prenom, nom: nom, email: email, tel: tel,
+      enfant1: enfant1, enfant2: enfant2 || '',
+      nbGateaux: nb,
+      commentaire: commentaire || ''
+    })
+  }).catch(function(err) { console.log('Sheets error:', err); });
+
+  document.getElementById('gateauFormCard').style.display = 'none';
+  document.getElementById('gateauSuccess').style.display = 'block';
+}
+
+function resetGateau() {
+  // Sauvegarder les infos personnelles
+  var savedGPrenom  = document.getElementById('gPrenom')       ? document.getElementById('gPrenom').value       : '';
+  var savedGNom     = document.getElementById('gNom')          ? document.getElementById('gNom').value          : '';
+  var savedGEmail   = document.getElementById('gEmail')        ? document.getElementById('gEmail').value        : '';
+  var savedGTel     = document.getElementById('gTel')          ? document.getElementById('gTel').value          : '';
+  var savedGE1Nom   = document.getElementById('gEnfant1Nom')   ? document.getElementById('gEnfant1Nom').value   : '';
+  var savedGE1Classe= document.getElementById('gEnfant1Classe')? document.getElementById('gEnfant1Classe').value: '';
+
+  document.getElementById('gateauFormCard').style.display = 'block';
+  document.getElementById('gateauSuccess').style.display = 'none';
+
+  // Remettre les infos personnelles
+  if (document.getElementById('gPrenom'))        document.getElementById('gPrenom').value        = savedGPrenom;
+  if (document.getElementById('gNom'))           document.getElementById('gNom').value           = savedGNom;
+  if (document.getElementById('gEmail'))         document.getElementById('gEmail').value         = savedGEmail;
+  if (document.getElementById('gTel'))           document.getElementById('gTel').value           = savedGTel;
+  if (document.getElementById('gEnfant1Nom'))    document.getElementById('gEnfant1Nom').value    = savedGE1Nom;
+  if (document.getElementById('gEnfant1Classe')) document.getElementById('gEnfant1Classe').value = savedGE1Classe;
+
+  // Réinitialiser seulement nb gâteaux et RGPD
+  document.querySelectorAll('input[name="nbGateaux"]').forEach(function(i) { i.checked = false; });
+  ['gnb1','gnb2','gnb3','gnb4','gnb5'].forEach(function(id) {
+    var lbl = document.getElementById(id);
+    if (lbl) { lbl.style.background='var(--white)'; lbl.style.borderColor='var(--border)'; lbl.style.boxShadow='none'; }
+  });
+  var e2 = document.getElementById('gEnfant2Block');
+  if (e2) e2.style.display = 'none';
+  var gBtn = document.getElementById('gAddEnfantBtn');
+  if (gBtn) gBtn.textContent = '➕ Ajouter un 2ème enfant';
+  document.getElementById('gateauDetails').style.display = 'none';
+  document.getElementById('gateauRows').innerHTML = '';
+  document.getElementById('gRgpd').checked = false;
+}
+</script>
+
+</div><!-- fin .page-wrap -->
+
+</body>
+</html>
